@@ -1,5 +1,22 @@
+//:numbered!:
 
-[NOTE: The language below should already be included in the `0-preface.adoc` source file. It is replicated here for convenience.]
+// *****************************************************************************
+// Editors please do not alter anything in this file!
+// *****************************************************************************
+
+.[big]*{category}*
+
+*COPYRIGHT*
+
+Copyright © {copyrightYear} Open Geospatial Consortium.
+To obtain additional rights of use, visit http://www.opengeospatial.org/
+
+
+*WARNING*
+
+This document is not an OGC Standard. This document is an {category} created as a deliverable in an OGC Interoperability Initiative and is not an official position of the OGC membership. It is distributed for review and comment. It is subject to change without notice and may not be referred to as an OGC Standard. Further, any {category} should not be referenced as required or mandatory technology in procurements. However, the discussions in this document could very well lead to the definition of an OGC Standard.
+
+<<<<
 
 *LICENSE AGREEMENT*
 
@@ -16,3 +33,9 @@
 [small]#This Agreement is governed by the laws of the Commonwealth of Massachusetts. The application to this Agreement of the United Nations Convention on Contracts for the International Sale of Goods is hereby expressly excluded. In the event any provision of this Agreement shall be deemed unenforceable, void or invalid, such provision shall be modified so as to make it valid and enforceable, and as so modified the entire Agreement shall remain in full force and effect. No decision, action or inaction by LICENSOR shall be construed to be a waiver of any rights or remedies available to it.#
 
 [small]#None of the Intellectual Property or underlying information or technology may be downloaded or otherwise exported or reexported in violation of U.S. export laws and regulations. In addition, you are responsible for complying with any local laws in your jurisdiction which may impact your right to import, export or use the Intellectual Property, and you represent that you have complied with any regulations or registration procedures required by applicable law to make this license enforceable.#
+
+<<<<
+
+toc::[]
+
+<<<<
