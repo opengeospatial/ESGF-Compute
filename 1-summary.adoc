@@ -28,10 +28,22 @@ All questions regarding this document should be directed to the editor or the co
 [width="80%",options="header",caption=""]
 |====================
 |Name |Organization
-|((editor)) | (( from org ))
-|((contributor)) | ((from org))
+|Tom Landry | CRIM
+|David Byrns | CRIM
+|Francis Charette-Migneault | CRIM
+|Carsten Ehberecht | Deutsches Klimarechenzentrum (DKRZ)
+|David Huard | Ouranos
 |====================
 
+===	Acknowledgements
+
+Besides this testbed activity participants and observers, the following institutions collaborated in ESGF Compute Challenge and coordinated their efforts:
+
+*	Lawrence Livermore National Laboratory
+*	NASA Goddard Space Flight Center
+*	Centro Euro-Mediterraneo sui Cambiamenti Climatici (CMCC)
+* CERFACS
+* University of Utah
 
 // *****************************************************************************
 // Editors please do not change the Foreword.

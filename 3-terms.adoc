@@ -2,22 +2,36 @@
 
 For the purposes of this report, the definitions specified in Clause 4 of the OWS Common Implementation Standard https://portal.opengeospatial.org/files/?artifact_id=38867&version=2[OGC 06-121r9] shall apply. In addition, the following terms and definitions apply.
 
-* term name
-
- text of the definition
-
-* term name|synonym
-
- text of the definition
-
-
 ===	Abbreviated terms
 
-.NOTE: The abbreviated terms clause gives a list of the abbreviated terms and the symbols necessary for understanding this document. All symbols should be listed in alphabetical order. Some more frequently used abbreviated terms are provided below as examples.
-
-* COM	Component Object Model
-* CORBA	Common Object Request Broker Architecture
-* COTS	Commercial Off The Shelf
-* DCE	Distributed Computing Environment
-* DCOM	Distributed Component Object Model
-* IDL	Interface Definition Language
+* ACL Access Control List
+* ADES Application Deployment and Execution Service
+* AOI	Area Of Interest
+* AP Application Package
+* CWL	Common Workflow Language
+* CWT Compute Working Team
+* EMS	Execution Management Service
+* EO Earth Observation
+* EOC	Earth Observation Clouds
+* EP Exploitation Platform
+* ER Engineering Report
+* ESA	European Space Agency
+* ESGF Earth System Grid Federation
+* IdP Identity Provider
+* IT Information Technology
+* JSON JavaScript Object Notation
+* MEP	Mission Exploitation Platform
+* NRCan Natural Resources Canada
+* OAS3 OpenAPI 3 Specification
+* OWS	OGC Web Services
+* PFC Pacific Forestry Center
+* QoS Quality of Service
+* REST REpresentational State Transfer
+* TEP	Thematic Exploitation Platform
+* TIE	Technology Integration Experiments
+* TOI	Time Of Interest
+* URI Uniform Resource Identifier
+* URL Uniform Resource Locator
+* VM Virtual Machine
+* WFS Web Feature Service
+* WPS	Web Processing Service
