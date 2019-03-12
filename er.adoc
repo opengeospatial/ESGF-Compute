@@ -37,7 +37,7 @@
 // The title here should match the title on the first page.
 // *****************************************************************************
 
-:title: Earth System Grid Federation computation
+:title: OGC Testbed: Earth System Grid Federation (ESGF) Compute Challenge
 
 // *****************************************************************************
 // Document identifier, with format "OGC YY-nnn" (e.g., OGC 17-067).
@@ -63,7 +63,7 @@
 // Proposed working group for review (e.g. Architecture DWG, WCS SWG)
 // *****************************************************************************
 
-:workingGroup: SWG/DWG for Review: TBD
+:workingGroup: SWG/DWG for Review: Earth Observation Exploitation Platform DWG
 
 // *****************************************************************************
 // End of Editor's front-matter elements.

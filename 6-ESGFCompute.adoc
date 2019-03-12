@@ -1,2 +1,4 @@
 [[ESGFCompute]]
 == ESGF Compute Challenge
+
+cite:[EHBRECHT2018], cite:[AGU2018MAXWELL], cite:[EGU2018EHBERECT], cite:[BALAJI2018], cite:[FIORE2016], cite:[SCHNASE2016], cite:[POTTER2018]
