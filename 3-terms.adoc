@@ -2,6 +2,95 @@
 
 For the purposes of this report, the definitions specified in Clause 4 of the OWS Common Implementation Standard https://portal.opengeospatial.org/files/?artifact_id=38867&version=2[OGC 06-121r9] shall apply. In addition, the following terms and definitions apply.
 
+* AIMS (Analytics and Informatics Management Systems)
+
+// ESGF Face to Face report 2017
+Program at LLNL enabling data discovery and knowledge integration across the scientific climate community.
+
+* CDMS (Climate Data Management System)
+
+// ESGF Face to Face report 2017
+Object-oriented data management system specialized for organizing multidimensional gridded data used in climate analyses for data observation and simulation
+
+* CMIP
+
+// ESGF Face to Face report 2017
+Sponsored by the World Climate Research Programme’s Working Group on Coupled Modeling, CMIP is a community-based infrastructure for climate model diagnosis, validation, intercomparison, documentation, and data access (cmip-pcmdi.llnl.gov).
+
+* CORDEX
+
+// ESGF Face to Face report 2017
+Provides global coordination of regional climate downscaling for improved regional climate change adaptation and impact assessment (cordex.org).
+
+* CREATE (Collaborative REAnalysis Technical Environment)
+
+// ESGF Face to Face report 2017
+NASA project that centralizes numerous global reanalysis data sets into a single advanced data analytics platform
+
+* Controlled vocabulary
+
+//Wikipedia
+Controlled vocabularies provide a way to organize knowledge for subsequent retrieval. They are used in subject indexing schemes, subject headings, thesauri, taxonomies and other forms of knowledge organization systems.
+
+* Dataset
+
+//[SOURCE: ISO 19115-1:2014, 4.3]
+Identifiable collection of data.
+
+* Deep learning
+
+//Wikipedia
+Deep Learning is a class of machine learning algorithms that: use a cascade of multiple layers of nonlinear processing units for feature extraction and transformation; learn in supervised and/or unsupervised manners; learn multiple levels of representations that correspond to different levels of abstraction.
+
+ * Deep neural network
+
+//Wikipedia
+A deep neural network (DNN) is an artificial neural network (ANN) with multiple layers between the input and output layers. See Artificial Neural Network.
+
+* DOI (Digital Object Identifier)
+
+// ESGF Face to Face report 2017
+Serial code used to uniquely identify content of various types of electronic networks; particularly used for electronic documents such as journal articles (en.wikipedia.org/wiki/Digital_object_identifier).
+
+* HDF (Hierarchical Data Format)
+
+// ESGF Face to Face report 2017
+Data model, library, and file format for storing and managing a wide variety of high-volume and complex data types
+
+* IS-ENES (Infrastructure for the European Network for Earth System Modeling)
+
+// ESGF Face to Face report 2017
+Distributed einfrastructure of ENES models, model data, and metadata (is.enes.org).
+
+* netCDF (Network Common Data Form)
+
+// ESGF Face to Face report 2017
+Machine-independent, self-describing binary data format (unidata.ucar.edu/software/netcdf/).
+
+* OpenAPI
+
+The OpenAPI Specification is an API description format for REST APIs.
+
+* OPeNDAP (Open-Source Project for a Network Data Access Protocol)
+
+// ESGF Face to Face report 2017
+Architecture for data transport including standards for encapsulating structured data and describing data attributes (opendap.org).
+
+* Obs4MIPs (Observations for Model Intercomparisons)
+
+// ESGF Face to Face report 2017
+Database used by the CMIP modeling community for comparing satellite observations with climate model predictions (earthsystemcog.org/projects/obs4mips/).
+
+* Profile
+
+//http://docs.opengeospatial.org/per/17-040.html#_terms_and_definitions
+Set of one or more base standards and - where applicable - the identification of chosen clauses, classes, subsets, options and parameters of those base standards that are necessary for accomplishing a particular function [ISO 19101, ISO 19106].
+
+* Supervised Learning
+
+//Wikipedia
+Supervised learning is the machine learning task of learning a function that maps an input to an output based on example input-output pairs. It infers a function from labeled training data consisting of a set of training examples.
+
 ===	Abbreviated terms
 
 * ACL Access Control List
