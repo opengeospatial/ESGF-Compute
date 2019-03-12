@@ -8,8 +8,16 @@ For the purposes of this report, the definitions specified in Clause 4 of the OW
 * ADES Application Deployment and Execution Service
 * AOI	Area Of Interest
 * AP Application Package
+* API Application Programming Interface
+* BER Biological and Environment Research
+* C3S Copernicus Climate Change Service
+* CDMS Climate Data Management System
+* CMIP Coupled Model Intercomparison Project
+* CRIM Computer research institute of Montreal
 * CWL	Common Workflow Language
 * CWT Compute Working Team
+* DKRZ Deutsches Klimarechenzentrum
+* DOE U.S. Department of Energy
 * EMS	Execution Management Service
 * EO Earth Observation
 * EOC	Earth Observation Clouds
@@ -17,21 +25,29 @@ For the purposes of this report, the definitions specified in Clause 4 of the OW
 * ER Engineering Report
 * ESA	European Space Agency
 * ESGF Earth System Grid Federation
+* F2F Face to Face
+* HPC High-Performance Computing
 * IdP Identity Provider
+* IPCC Intergovernmental Panel on Climate Change
 * IT Information Technology
 * JSON JavaScript Object Notation
+* LLNL Lawrence Livermore National Laboratory
+* MIP Model Intercomparaison Project
 * MEP	Mission Exploitation Platform
-* NRCan Natural Resources Canada
+* ML Machine Learning
+* NASA National Aeronautics and Space Administration
 * OAS3 OpenAPI 3 Specification
+* OPeNDAP Open-Source Project for a Network Data Access Protocol
+* PAVICS Power Analytics and Visualization for Climate Science
 * OWS	OGC Web Services
-* PFC Pacific Forestry Center
-* QoS Quality of Service
 * REST REpresentational State Transfer
+* TB Testbed
 * TEP	Thematic Exploitation Platform
 * TIE	Technology Integration Experiments
 * TOI	Time Of Interest
 * URI Uniform Resource Identifier
 * URL Uniform Resource Locator
+* UV-CDAT Ultrascale Visualization–Climate Data Analysis Tools
 * VM Virtual Machine
 * WFS Web Feature Service
 * WPS	Web Processing Service
