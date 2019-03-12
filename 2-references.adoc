@@ -4,6 +4,9 @@
 The following normative documents are referenced in this document.
 
 * OGC: https://portal.opengeospatial.org/files/?artifact_id=38867&version=2[OGC 06-121r9, OGC® Web Services Common Standard], 2010
+* OGC: https://portal.opengeospatial.org/files/13-026r8[OGC: OGC 13-026r8, OGC OpenSearch Extension for Earth Observation 1.0], 2016
 * OGC: https://portal.opengeospatial.org/files/14-065r2[OGC: OGC 14-065r2, OGC Web Processing Service 2.0.2 Interface Standard Corrigendum], 2018
+* OGC: https://portal.opengeospatial.org/files/?artifact_id=56866[OGC: OGC 13-032r8, OGC OpenSearch Geo and Time Extensions 1.0.0], 2014
+* OGC: http://docs.opengeospatial.org/is/12-168r6/12-168r6.html[OGC: OGC 12-168r6, OGC® Catalogue Services 3.0 - General Model], 2016
 * W3C: https://www.w3.org/2018/jsonld-cg-reports/json-ld/[A JSON-based Serialization for Linked Data], 2018
 * CWL: https://www.commonwl.org/v1.0/[CWL group: Common Workflow Language Specifications, v1.0.2], 2018
