@@ -1,4 +1,24 @@
 [[ESGFCompute]]
 == ESGF Compute Challenge
+=== Background information
+7th Annual Earth System Grid Federation Face-to-Face Conference Report cite:[auten20187th]
+Strategie Roadmap for the Earth System Grid Federation cite:[Williams2015]
+Big Data Challenges in Climate Science: Improving the next-generation cyberinfrastructure cite:[SCHNASE2016]
+Enabling Reanalysis Research Using the Collaborative Reanalysis Technical Environment (CREATE) cite:[POTTER2018]
+Requirements for a global data infrastructure in support of CMIP6 cite:[BALAJI2018]
 
-cite:[EHBRECHT2018], cite:[AGU2018MAXWELL], cite:[EGU2018EHBERECT], cite:[BALAJI2018], cite:[FIORE2016], cite:[SCHNASE2016], cite:[POTTER2018]
+=== Implementations
+The Earth Data Analytic Services (EDAS) Framework cite:[AGU2018MAXWELL]
+Web Processing Services for Copernicus Climate Change Service cite:[EGU2018EHBERECT]
+Distributed and cloud-based multi-model analytics experiments on large volumes of climate change data in the earth system grid federation eco-system cite:[FIORE2016]
+Scaling Big Data Neuroscience: From Interactive Analytics to HPC Platforms cite:[PetruzzaVGSFAPB17]
+
+=== ESGF Compute Working Team API
+=== WPS 1.0 specification
+Here we document current API reference document
+
+=== API Client
+Here we describe the ESGF API and the reference implementation
+
+=== Server reference implementation
+Here we describe the reference server implementation
