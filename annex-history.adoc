@@ -6,5 +6,6 @@
 [width="90%",options="header"]
 |====================
 |Date |Editor |Release | Primary clauses modified |Descriptions
-|March 11, 2018 |T. Landry | .1 |all |initial version
+|March 11, 2019 |T. Landry | .1 |all |initial version
+|March 15, 2019 |D. Byrns | .2 |all |technical background
 |====================
