@@ -3,28 +3,28 @@
 
 === Goal
 
-By doing this extension, our goal was to improve our EMS so that we can increase the compatibility across existing systems. For us it means that our EMS with it's actual WPS-T interface should be able to run multiple application types and use them in a heterogeneous workflows. So using a single interface we would be able to execute an impressive array of existing applications and moreover use them inside workflows. Two new application types were considered in this project. The first was for backward compatibility and consist of execution existing process served by WPS 1.0 endpoint. The second was to broaden furthermore the application scope by covering the ESGF Compute Working Team (CWT) process API.
+The goal of the extension presented in this report is the improvement of the EMS in order to increase compatibility across existing systems. The EMS provided for Testbed-14 offers a WPS-T 2.0 interface, yet should be able to run multiple application types and use them in heterogeneous workflows. Using a single interface should allow execution of a large array of existing applications and moreover use them inside workflows. Two new application types are considered in this project. The first is for backward compatibility and consist of execution existing process served by WPS 1.0 endpoint. The second is to broaden furthermore the application scope by covering the <<ESGFCompute, ESGF Compute Working Team (CWT) API>>.
 
 === Architecture
 
-Multiple approaches have been considered to achieve this goal but we had in mind that it had to be done in a short lapse of time. The first approach was to keep the EMS as is and try to package every type of application into a Docker image and provide with them a CWL describing how to invoke them. However packaging existing providers would yield a huge docker image with multiple processes and could also prove to be impossible for external providers for which the code is unavailable. The second approach, much simpler, defeat however one of the principle of the Testbed-14 which is to bring the application to the data. This approach consist of packaging all the information required to make a standard WPS 1.0 or CWT request. That is we provide a DeployProcess document describing the inputs / outputs of the process like before, but the CWL is modified so that the engine can change the execution unit and perform a classic WPS 1.0 or CWT execute request, without prior deployment request.
+Multiple approaches have been considered to achieve this goal. The first approach is to keep the EMS as is, package every type of application into Docker images, and provide alongside them a CWL describing invocation mechanisms. However, packaging existing providers would yield a huge docker images with multiple processes. This could simply prove impossible for external providers for which the code is unavailable. The second approach, much simpler, defeat however one of the principle of the Testbed-14 which is to bring the application to the data. This approach consist of packaging all the information required to make a standard WPS 1.0 or ESGF CWT API request. A DeployProcess document describing the inputs and outputs of the process is still provided, but the CWL is modified so that the engine can change the execution unit and perform a classic WPS 1.0 or ESGF CWT API execute request, without prior deployment request.
 
-Moreover we choose to divide our Twitcher component into two components so that each one can focus primarily on its own role and make the architecture simpler. The following diagram resume all of that. We see that the WPS-T interface introduced in Twitcher during the last Testbed along with the CWL engine have been moved to a new component named Weaver so that Twitcher can now work as a security proxy along with the permission provider (Magpie) like previously. What as evolve in Weaver is that now we can clearly see the relation between the CWL workflow engine and the job interface and all the available implementation for each of the application type.
+In Testbed-14, CRIM's EMS implementation was all contained in a component named Twitcher. That component is now scinded into two components, so that each one can focus primarily on its own role and make the architecture simpler. The following diagram resume the situation. The WPS-T interface and CWL engine introduced in Twitcher are moved to a new component named Weaver (https://github.com/crim-ca/weaver). Twitcher can now operate as a security proxy along with the permission provider (Magpie) like previously. The relation between the CWL workflow engine, the job interface and all the available implementation for each of the application type are depicted in the following figure.
 
 .New EMS component called Weaver and its workflow packages.
 image::images/Twitcher_OGC_DOE.png[width=950,align="center"]
 
 === Application Package
 
-As mentionned in the previous section the DeployProcess document has been keep the same for both new application type. So they define an id, inputs, outputs and a CWL execution unit.
+As mentioned in the previous section, the DeployProcess document is the same for both new application type. It defines an id, inputs, outputs and a CWL execution unit.
 
 .JSON file for a deploy request for CRIM's workflow
 [source,json]
 ----
-Add deploy process json content
+TODO: Add deploy process json content
 ----
 
-The CWL file however has been modified in a way that the CWL engine can instantiate the good job implementation. To do that we have use the hints section of the CWL file and replace the traditional DockerRequirement value with our custom requirements which are WPS1Requirement and ESGF-CWTRequirement. Under that key we provide a dictionary containing all the parameters required to make an execute request to WPS 1.0 provider. Below we have a CWL example file describing one of our climate process WPS 1.0 provider. The only difference with the CWL provided during the Testbed-14 is the hints section declaring the WPS1Requirement and two parameters : the provider endpoint and the process which is wrapped. We also improve our CWL knowledge and have now enforce file format.
+The CWL file is modified so that the CWL engine can instantiate the appropriate job implementation. To that effect, the hints section of the CWL file are used. This replaces the traditional DockerRequirement value for extensions requirements, which are WPS1Requirement and ESGF-CWTRequirement. Under that key, a dictionary containing all the parameters required to make an execute request to WPS 1.0 provider is added. Below, a CWL example file describes one of the climate processes for the WPS 1.0 provider. The only difference with the CWL provided during Testbed-14 is the hints section declaring the WPS1Requirement and two parameters : the provider endpoint and the process which is wrapped. The file format is also now enforced in the CWL file.
 
 .CWL file for the ice_days process of Finch WPS 1.0 provider
 [source,json]
@@ -86,15 +86,13 @@ The CWL file however has been modified in a way that the CWL engine can instanti
 }
 ----
 
-Since WPS 1.0 provider can describe themselves very well we have automated the process of converting existing provider processes into appllication packages that can be deployed on our EMS. Thus both the json and cwl are generated automatically.
-
-When the CWL engine see the previous file it now recognized the WPS1Requirement and create a WPS 1.0 Job (illustrated in figure 1). That job use the same interface than the WPS-T 2.0 Job as before but rather than deploying and executing an application on a remote ADES it call the WPS 1.0 execute request of the provider and process given in parameters. The result is then fetch like for the ADES implementation.
+Since WPS 1.0 provider can describe themselves very well, the process of converting existing provider processes into application packages was automated so that it can be deployed through the EMS. Both the json and cwl are generated automatically. When the CWL engine encounters the file presented above, it is recognized as WPS1Requirement thus creating a WPS 1.0 Job. That job uses the same interface than the WPS-T 2.0 Job, but rather than deploying and executing an application on a remote ADES it call the WPS 1.0 execute request of the provider and process given in parameters. The result is then fetched like for the ADES implementation.
 
 TODO: Talk about CWT app package
 
 === Application Chaining
 
-Now for the application chaining we can tell that nothing has change since CWL is now able to process all type of application only by instanciating the proper job type. The only thing that has been added to further improve compatibility is what we called utility application. They are only small python application, still package as cwl that can make some adaptation between related type. We have came across application that yield json file containing array of netcdf files and thus the json output is incompatible with an application wanting netcdf files. Our utility application can now be chained between the two and the CWL engine will fed the json output into our utility apps and this one will provide an array of netcdf files ready to be consumed by the next application. Theses applications are really lightweight because the CWL file is only wrapping a python function already inside our EMS, the Weaver component. Here we can see the CWL file of the json to netcdf example :
+For the application chaining, CWL engine is now able to process all type of application only by instantiating the proper job type. To further improve compatibility, utility applications were added. They are small python applications, still packaged as CWL, that can make some adaptation between related type. For example, some application yields json file containing array of netcdf files. The json output is therefore incompatible with an application wanting netcdf files as inputs. The utility application can be chained between the two. This way, the CWL engine feeds the json output into the utility apps that will provide an array of netcdf files, ready to be consumed by the next application. These applications are really lightweight because the CWL file is only wrapping a python function already inside the Weaver EMS component. Below is a sample CWL file of the json to netcdf.
 
 .CWL file for the json to netcdf utility application
 [source,json]
