@@ -100,6 +100,7 @@ Supervised learning is the machine learning task of learning a function that map
 * API Application Programming Interface
 * BER Biological and Environment Research
 * C3S Copernicus Climate Change Service
+* CCCS Canadian Center for Climate Services
 * CDMS Climate Data Management System
 * CMIP Coupled Model Intercomparison Project
 * CRIM Computer research institute of Montreal
@@ -107,6 +108,7 @@ Supervised learning is the machine learning task of learning a function that map
 * CWT Compute Working Team
 * DKRZ Deutsches Klimarechenzentrum
 * DOE U.S. Department of Energy
+* ECCC Environment and Climate Change Canada
 * EMS	Execution Management Service
 * EO Earth Observation
 * EOC	Earth Observation Clouds
@@ -125,11 +127,14 @@ Supervised learning is the machine learning task of learning a function that map
 * MEP	Mission Exploitation Platform
 * ML Machine Learning
 * NASA National Aeronautics and Space Administration
+* NRCan Natural Resources Canada
 * OAS3 OpenAPI 3 Specification
 * OPeNDAP Open-Source Project for a Network Data Access Protocol
 * PAVICS Power Analytics and Visualization for Climate Science
+* PCIC Pacific Climate Impacts Consortium
 * OWS	OGC Web Services
 * REST REpresentational State Transfer
+* SWG Software Working Group
 * TB Testbed
 * TEP	Thematic Exploitation Platform
 * TIE	Technology Integration Experiments
