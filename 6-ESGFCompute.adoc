@@ -1,17 +1,35 @@
 [[ESGFCompute]]
 == ESGF Compute Challenge
 === Background information
-7th Annual Earth System Grid Federation Face-to-Face Conference Report cite:[auten20187th]
-Strategie Roadmap for the Earth System Grid Federation cite:[Williams2015]
-Big Data Challenges in Climate Science: Improving the next-generation cyberinfrastructure cite:[SCHNASE2016]
-Enabling Reanalysis Research Using the Collaborative Reanalysis Technical Environment (CREATE) cite:[POTTER2018]
-Requirements for a global data infrastructure in support of CMIP6 cite:[BALAJI2018]
+Addressing “big data” challenges in Earth system research, ESGF is an international collaboration of computer scientists, data scientists, and climate researchers. The federation houses an enormous database of global observational and simulation data — more than 5 petabytes — and manages the high-performance computing (HPC) hardware and software infrastructure necessary for scientific climate research. In the nearly two decades since its launch, ESGF has grown to serve 25,000 users on 6 continents cite:[auten20187th].
+
+The following publications offer a thorough view on various challenges and requirements of ESGF:
+
+* Strategie Roadmap for the Earth System Grid Federation cite:[Williams2015]
+* Big Data Challenges in Climate Science: Improving the next-generation cyberinfrastructure cite:[SCHNASE2016]
+* Enabling Reanalysis Research Using the Collaborative Reanalysis Technical Environment (CREATE) cite:[POTTER2018]
+* Requirements for a global data infrastructure in support of CMIP6 cite:[BALAJI2018]
+* Addressing the massive CMIP6 data science challenge through the ESGF global federation cite:[2018AGUFMIN21A]
+
+As of early 2019, the priorities of ESGF are as follows:
+
+* Containerized architecture
+* OAuth 2.0 deployments
+* CMIP6 data replication
+* Next-generation search services
+* Scalability on multiple fronts
+* Machine Learning tools
+* Compute nodes challenges
+
+On that last element, the Compute Working Team (CWT) currently conducts iterative deployments and tests to stand up multiple production-ready, officially certified ESGF compute nodes. This effort includes data selection, security scans, API development, scalability tests, documentation updates, and regular status reports. The current Engineering Report is one of the contributions to this challenge.
 
 === Implementations
-The Earth Data Analytic Services (EDAS) Framework cite:[AGU2018MAXWELL]
-Web Processing Services for Copernicus Climate Change Service cite:[EGU2018EHBERECT]
-Distributed and cloud-based multi-model analytics experiments on large volumes of climate change data in the earth system grid federation eco-system cite:[FIORE2016]
-Scaling Big Data Neuroscience: From Interactive Analytics to HPC Platforms cite:[PetruzzaVGSFAPB17]
+
+* Analytics and Informatics Management Systems https://computation.llnl.gov/projects/aims-analytics-and-informatics-management-systems[(AIMS)], LLNL. 
+* The Earth Data Analytic Services https://www.nccs.nasa.gov/services/analytics/EDAS[(EDAS)] Framework, NASA Goddard SFC. See cite:[AGU2018MAXWELL].
+* http://bird-house.github.io/[Birdhouse] Framework, DKRZ/CEDA/IPSL. See cite:[EGU2018EHBERECT].
+* https://github.com/OphidiaBigData/ophidia-analytics-framework[Ophidia] Analytics Framework, CMCC. See cite:[FIORE2016].
+* https://github.com/sci-visus/OpenVisus[OpenVisus], University of Utah. See cite:[PetruzzaVGSFAPB17].
 
 === ESGF Compute Working Team API
 === WPS 1.0 specification

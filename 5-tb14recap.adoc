@@ -2,9 +2,6 @@
 == Recap Of Work Done In Testbed-14
 
 === Testbed-14 Earth Observation and Cloud (EOC) thread
-==== Cloud computing
-Cloud ER cite:[TB13CLOUDER2017]
-
 
 ==== Architecture
 
@@ -36,6 +33,3 @@ image::images/OGC_TB14.png[width=650,align="center"]
 === Other relevant Testbed-14 work
 Federated Clouds ER cite:[TB14FC2018]
 Machine Learning ER cite:[TB14ML2018]
-
-=== Climate components of Testbed-14 implementation
-Projects using the Birdhouse framework cite:[EHBRECHT2018]
