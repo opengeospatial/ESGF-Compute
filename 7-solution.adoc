@@ -7,7 +7,7 @@ The goal of the extension presented in this report is the improvement of the EMS
 
 === Architecture
 
-Multiple approaches have been considered to achieve this goal. The first approach is to keep the EMS as is, package every type of application into Docker images, and provide alongside them a CWL describing invocation mechanisms. However, packaging existing providers would yield a huge docker images with multiple processes. This could simply prove impossible for external providers for which the code is unavailable. The second approach, much simpler, defeat however one of the principle of the Testbed-14 which is to bring the application to the data. This approach consist of packaging all the information required to make a standard WPS 1.0 or ESGF CWT API request. A DeployProcess document describing the inputs and outputs of the process is still provided, but the CWL is modified so that the engine can change the execution unit and perform a classic WPS 1.0 or ESGF CWT API execute request, without prior deployment request.
+Multiple approaches have been considered to achieve this goal. The first approach is to keep the EMS as is, package every type of application into Docker images, and provide alongside them a CWL describing invocation mechanisms. However, packaging existing providers would yield a huge docker images with multiple processes. This could simply prove impossible for external providers for which the code is unavailable. The second approach, much simpler, defeat however one of the principle of the Testbed-14 which is to bring the application to the data. This approach consist of packaging all the information required to make a standard WPS 1.0 or ESGF CWT API request. A DeployProcess document is still provided but two new profiles name have been introduced, wpsApplication and ESGFWpsApplication, that requires fewer elements as everything needed can be extracted from the existing endpoints. In the WPS 1.0, the CWL file can even be generated transparently at deployment time since the parameters mapping is trivial. The CWL file itself allow to specify execution requirements so that the engine can change the execution unit and perform a classic WPS 1.0 or ESGF CWT API execute request, without prior deployment request.
 
 In Testbed-14, CRIM's EMS implementation was all contained in a component named Twitcher. That component is now scinded into two components, so that each one can focus primarily on its own role and make the architecture simpler. The following diagram resume the situation. The WPS-T interface and CWL engine introduced in Twitcher are moved to a new component named https://github.com/crim-ca/weaver[Weaver]. Twitcher can now operate as a security proxy along with the permission provider, Magpie, like previously. The relation between the CWL workflow engine, the job interface and all the available implementation for each of the application type are depicted in the following figure.
 
@@ -16,12 +16,46 @@ image::images/Twitcher_OGC_DOE.png[width=950,align="center"]
 
 === Application Package
 
-As mentioned in the previous section, the DeployProcess document is the same for both new application type. It defines an id, inputs, outputs and a CWL execution unit.
+As mentioned in the previous section, the DeployProcess document conforms to the existing API but requires fewer optional elements. Using the wpsApplication deployment profile name, it only requires the process id and an execution unit referencing a WPS 1.0 endpoint. Inputs, outputs and CWL file can be implicitely deduced.
 
-.JSON file for a deploy request for CRIM's workflow
+.JSON file for a WPS 1.0 process deploy request
 [source,json]
 ----
-TODO: Add deploy process json content
+{
+    "processDescription": {
+        "process": {
+            "id": "Finch_IceDays"
+        }
+    },
+    "executionUnit": [
+        {
+            "href": "https://finch.crim.ca/wps?service=WPS&request=describeprocess&version=1.0.0&identifier=ice_days"
+        }
+    ],
+    "deploymentProfileName": "http://www.opengis.net/profiles/eoc/wpsApplication"
+}
+----
+
+For the ESGF CWT processes the CWL must be provided (as a reference or inlined) since the parameters mapping is not as easy as for the WPS 1.0.
+
+.JSON file for a CWT process deploy request
+[source,json]
+----
+{
+    "processDescription": {
+        "process": {
+            "id": "nasa_esgf_subset"
+        }
+    },
+    "executionUnit": [
+        {
+            "unit": {
+                <cwl file content show below>
+            }
+        }
+    ],
+    "deploymentProfileName": "http://www.opengis.net/profiles/eoc/ESGFWpsApplication"
+}
 ----
 
 The CWL file is modified so that the CWL engine can instantiate the appropriate job implementation. To that effect, the hints section of the CWL file are used. This replaces the traditional DockerRequirement value for extensions requirements, which are WPS1Requirement and ESGF-CWTRequirement. Under that key, a dictionary containing all the parameters required to make an execute request to WPS 1.0 provider is added. Below, a CWL example file describes one of the climate processes for the WPS 1.0 provider. The only difference with the CWL provided during Testbed-14 is the hints section declaring the WPS1Requirement and two parameters: the provider endpoint and the process which is wrapped. The file format is also now enforced in the CWL file.
@@ -86,13 +120,187 @@ The CWL file is modified so that the CWL engine can instantiate the appropriate 
 }
 ----
 
-Since WPS 1.0 provider can describe themselves very well, the process of converting existing provider processes into application packages was automated so that it can be deployed through the EMS. Both the json and cwl are generated automatically. When the CWL engine encounters the file presented above, it is recognized as WPS1Requirement thus creating a WPS 1.0 Job. That job uses the same interface than the WPS-T 2.0 Job, but rather than deploying and executing an application on a remote ADES it call the WPS 1.0 execute request of the provider and process given in parameters. The result is then fetched like for the ADES implementation.
+When the CWL engine encounters the file presented above, it recognizes the WPS1Requirement thus creating a WPS 1.0 Job. That job uses the same interface than the WPS-T 2.0 Job, but rather than deploying and executing an application on a remote ADES it call the WPS 1.0 execute request of the provider and process given in parameters. The result is then fetched like for the ADES implementation.
 
-TODO: Talk about CWT app package
+In the following CWL file, the ESGF-CWTRequirement triggers the creation of CWT Job that will use the ESGF-compute-api Python package to run the process with a proper parameters mapping. Once again there is no deployment involved and once the process execution complete, the result is fetched.
+
+.CWL file for the NASA CWT Subset process
+[source,json]
+----
+{
+    "cwlVersion": "v1.0",
+    "class": "CommandLineTool",
+    "hints": {
+        "ESGF-CWTRequirement": {
+            "provider": "https://edas.nccs.nasa.gov/wps/cwt",
+            "process": "xarray.subset"
+        }
+    },
+    "inputs": {
+        "files": "File",
+        "variable": {
+            "type": "string"
+        },
+        "time_start": {
+            "type": "float",
+            "default": null
+        },
+        "time_end": {
+            "type": "float",
+            "default": null
+        },
+        "time_crs": {
+            "type": "string",
+            "default": null
+        },
+        "lat_start": {
+            "type": "float",
+            "default": null
+        },
+        "lat_end": {
+            "type": "float",
+            "default": null
+        },
+        "lat_crs": {
+            "type": "string",
+            "default": null
+        },
+        "lon_start": {
+            "type": "float",
+            "default": null
+        },
+        "lon_end": {
+            "type": "float",
+            "default": null
+        },
+        "lon_crs": {
+            "type": "string",
+            "default": null
+        }
+    },
+    "outputs": {
+        "output": {
+            "outputBinding": {
+                "glob": "output_netcdf.nc"
+            },
+            "type": "File"
+        }
+    }
+}
+----
+
+==== ESGF CWT Applications
+
+===== Current implementation
+
+Currently, only a small portion of the ESGF WPS processing is implemented in Weaver. This is largely due to the fact that ESGF WPS inputs are nested, and this nested structure must be translated to a flat one to correspond to standard WPS inputs or to Weaver's inputs.
+
+Some of these nested parameters are easy to implement, because they are always the same across each process, but others can't be automatically queried.
+
+Currently, this is what an execution body would look like:
+
+.JSON file of a CWT process execute body
+[source,json]
+----
+{
+  "mode": "async",
+  "response": "document",
+  "inputs": [
+      {
+         "id": "files",
+         "href": "https://boreas.ouranos.ca/twitcher/ows/proxy/thredds/dodsC/birdhouse/nrcan/nrcan_northamerica_monthly/tasmin/nrcan_northamerica_monthly_2015_tasmin.nc"
+      },
+      {
+         "id": "variable",
+         "data": "tasmin"
+      },
+      {
+         "id": "api_key",
+         "data": "{{ api_key }}"
+      },
+      {
+         "id": "time_start",
+         "data": "0"
+      },
+      {
+         "id": "time_end",
+         "data": "5"
+      },
+      {
+         "id": "time_crs",
+         "data": "values"
+      },
+      {
+         "id": "lat_start",
+         "data": "60"
+      },
+      {
+         "id": "lat_end",
+         "data": "40"
+      },
+      {
+         "id": "lat_crs",
+         "data": "values"
+      },
+      {
+         "id": "lon_start",
+         "data": "-80"
+      },
+      {
+         "id": "lon_end",
+         "data": "-60"
+      },
+      {
+         "id": "lon_crs",
+         "data": "values"
+      }
+  ],
+  "outputs": [
+    {
+      "id": "output",
+      "transmissionMode": "reference"
+    }
+  ]
+}
+----
+
+The 'files' and 'variable' correspond to the ESGF 'Variable' input.
+
+The 'api_key' must be obtained by creating an account on the Lawrence Livermore National Laboratory web site.
+
+The other inputs are a flat representation of the ESGF 'Domain' input. So far, the time, lat and lon attributes are in every netcdf file encountered so they are easy to implement and re-use for each process.
+
+The tested and currently working ESGF processes are 'CDAT.aggregate' and 'CDAT.subset'.
+
+===== Next steps
+
+One big downside of the ESGF WPS versus standard WPS is that the inputs must be explicitly described in the deployment of a process (for standard WPS, the deployment of a process requires only its url).
+
+We could identify a specific set of inputs that we want to support and include them in a shared interface between deployed ESGF processes. That way, the deployment of a process would be much more succinct. The 'DescribeProcess' command would still show all the inputs available
+
+Here are the inputs that would be easy to include in the interface:
+
+* Common domain variables:
+** Latitude (min and max)
+** Longitude (min and max)
+** Time (min and max)
+* Variables (datasets urls and variable name)
+
+And these inputs would need to be investigated as to how to implement them:
+
+* Custom domain variables (their name is provided by the user at execution time, not at deploy time)
+* Mask
+* Axis
+* Gridder
+
 
 === Application Chaining
 
-For the application chaining, CWL engine is now able to process all type of application only by instantiating the proper job type. To further improve compatibility, utility applications were added. They are small python applications, still packaged as CWL, that can make some adaptation between related type. For example, some application yields json file containing array of netcdf files. The json output is therefore incompatible with an application wanting netcdf files as inputs. The utility application can be chained between the two. This way, the CWL engine feeds the json output into the utility apps that will provide an array of netcdf files, ready to be consumed by the next application. These applications are really lightweight because the CWL file is only wrapping a python function already inside the Weaver EMS component. Below is a sample CWL file of the json to netcdf.
+For the application chaining, CWL engine is now able to process all type of application only by instantiating the proper job type. To demonstrate that interoperability two workflows have been produced  and will be presented in this section. However, before going there, utility applications have to be introduced.
+
+==== Utility applications
+
+This concept has been added to further improve compatibility. They are small python applications, still packaged as CWL, that can make some adaptation between related type. For example, some application yields json file containing array of netcdf files. The json output is therefore incompatible with an application wanting netcdf files as inputs. The utility application can be chained between the two. This way, the CWL engine feeds the json output into the utility apps that will provide an array of netcdf files, ready to be consumed by the next application. These applications are really lightweight because the CWL file is only wrapping a python function already inside the Weaver EMS component. Below is a sample CWL file of the json to netcdf.
 
 .CWL file for the json to netcdf utility application
 [source,json]
@@ -120,3 +328,233 @@ outputs:
    outputBinding:
      glob: "*.nc"
 ----
+
+==== 1st Workflow chaining WPS 1.0 processes
+
+The first workflow consists of a subsetter and a climate indices process. The deploy body is exactly the same as in Testbed-14 as shown here. It contains the deployment profile name indicating that it is a workflow, a process id and a cwl reference containing the workflow.
+
+.JSON file for the WPS 1.0 workflow
+[source,json]
+----
+{
+    "processDescription": {
+        "process": {
+            "id": "WorkflowSubsetIceDays",
+            "title": "Workflow of Subset and Ice Days",
+            "abstract": "Workflow that first executes a bounding box subset of a region and afterwards calculates days with ice within the obtained region."
+        }
+    },
+    "executionUnit": [
+        {
+            "href": "tests/functional/application-packages/workflow_subset_ice_days.cwl"
+        }
+    ],
+    "deploymentProfileName": "http://www.opengis.net/profiles/eoc/workflow"
+}
+----
+
+The CWL is also built the same way as in Testbed-14. It contains the class indicating that it is a workflow, the workflow inputs and outputs and the steps referencing cwl files. This workflow contains 2 WPS 1.0 steps and one utility json2nc step converting the output type of the first step into an acceptable type for the third one as introduced in the previous section.
+
+.CWL file for the WPS 1.0 workflow
+----
+{
+    "cwlVersion": "v1.0",
+    "class": "Workflow",
+    "requirements": [
+        {
+            "class": "StepInputExpressionRequirement"
+        }
+    ],
+    "inputs": {
+        "tasmax": {
+            "type": {
+                "type": "array",
+                "items": "string"
+            }
+        },
+        "lat0": "float",
+        "lat1": "float",
+        "lon0": "float",
+        "lon1": "float",
+        "freq": {
+            "default": "YS",
+            "type": {
+                "type": "enum",
+                "symbols": ["YS", "MS", "QS-DEC", "AS-JUL"]
+            }
+        }
+    },
+    "outputs": {
+        "output": {
+            "type": "File",
+            "outputSource": "ice_days/output_netcdf"
+        }
+    },
+    "steps": {
+        "subset": {
+            "run": "ColibriFlyingpigeon_SubsetBbox.cwl",
+            "in": {
+                "resource": "tasmax",
+                "lat0": "lat0",
+                "lat1": "lat1",
+                "lon0": "lon0",
+                "lon1": "lon1"
+            },
+            "out": ["output"]
+        },
+        "json2nc": {
+            "run": "jsonarray2netcdf",
+            "in": {
+                "input": "subset/output"
+            },
+            "out": ["output"]
+        },
+        "ice_days": {
+            "run": "Finch_IceDays.cwl",
+            "in": {
+                "tasmax": "json2nc/output",
+                "freq": "freq"
+            },
+            "out": ["output_netcdf"]
+        }
+    }
+}
+----
+
+==== 2nd Workflow linking 2 subsetters of CWT and WPS 1.0 type
+
+The second workflow has been tried both ways, first subsetting by CWT then by WPS 1.0 and using the opposite order, WPS 1.0 first then feeding the CWT interface. As for the first workflow, the deploy body is unchanged from previous Testbed (except for the CWL file name) and omit here.
+
+The first CWL shows that the WPS 1.0, "crim_subset", is linked to the second step, "llnl_subset", a CWT process executed on the Lawrence Livermore National Laboratory server.
+
+.CWL file for the WPS 1.0 to CWT workflow
+----
+
+{
+    "cwlVersion": "v1.0",
+    "class": "Workflow",
+    "requirements": [
+        {
+            "class": "StepInputExpressionRequirement"
+        }
+    ],
+    "inputs": {
+        "files": "string[]",
+        "variable": "string",
+        "esgf_api_key": "string",
+        "llnl_lat0": "float",
+        "llnl_lat1": "float",
+        "llnl_lon0": "float",
+        "llnl_lon1": "float",
+        "crim_lat0": "float",
+        "crim_lat1": "float",
+        "crim_lon0": "float",
+        "crim_lon1": "float"
+    },
+    "outputs": {
+        "output": {
+            "type": "File",
+            "outputSource": "llnl_subset/output"
+        }
+    },
+    "steps": {
+        "crim_subset": {
+            "run": "ColibriFlyingpigeon_SubsetBbox.cwl",
+            "in": {
+                "resource": "files",
+                "lat0": "crim_lat0",
+                "lat1": "crim_lat1",
+                "lon0": "crim_lon0",
+                "lon1": "crim_lon1"
+            },
+            "out": ["output"]
+        },
+        "llnl_subset": {
+            "run": "SubsetESGF.cwl",
+            "in": {
+                "files": "crim_subset/output",
+                "variable": "variable",
+                "api_key": "esgf_api_key",
+                "lat_start": "llnl_lat0",
+                "lat_end": "llnl_lat1",
+                "lon_start": "llnl_lon0",
+                "lon_end": "llnl_lon1"
+            },
+            "out": ["output"]
+        }
+    }
+}
+----
+
+The second CWL file shows the opposite, this time using the CWT interface of the NASA server, "nasa_subset", to feed the WPS 1.0 process, "crim_subset". In this workflow, an utility application is also used to convert the file type obtains from the "nasa_subset" step to a string type required by the "crim_subset" further supporting the usefulness of these utility applications.
+
+.CWL file for the WPS 1.0 to CWT workflow
+----
+{
+    "cwlVersion": "v1.0",
+    "class": "Workflow",
+    "requirements": [
+        {
+            "class": "StepInputExpressionRequirement"
+        }
+    ],
+    "inputs": {
+        "files": "File",
+        "variable": "string",
+        "nasa_lat0": "float",
+        "nasa_lat1": "float",
+        "nasa_lon0": "float",
+        "nasa_lon1": "float",
+        "crim_lat0": "float",
+        "crim_lat1": "float",
+        "crim_lon0": "float",
+        "crim_lon1": "float"
+    },
+    "outputs": {
+        "output": {
+            "type": "File",
+            "outputSource": "crim_subset/output"
+        }
+    },
+    "steps": {
+        "nasa_subset": {
+            "run": "SubsetNASAESGF.cwl",
+            "in": {
+                "files": "files",
+                "variable": "variable",
+                "lat_start": "nasa_lat0",
+                "lat_end": "nasa_lat1",
+                "lon_start": "nasa_lon0",
+                "lon_end": "nasa_lon1"
+            },
+            "out": ["output"]
+        },
+        "file2string_array": {
+            "run": "file2string_array",
+            "in": {
+                "input": "nasa_subset/output"
+            },
+            "out": ["output"]
+        },
+        "crim_subset": {
+            "run": "ColibriFlyingpigeon_SubsetBbox.cwl",
+            "in": {
+                "resource": "file2string_array/output",
+                "lat0": "crim_lat0",
+                "lat1": "crim_lat1",
+                "lon0": "crim_lon0",
+                "lon1": "crim_lon1"
+            },
+            "out": ["output"]
+        }
+    }
+}
+----
+
+==== Conclusion
+
+TODO: To be moved in a better place
+
+It has been shown with the previous workflows that interoperability between WPS 1.0 and ESGF CWT interface can be achieved with the Weaver component. If climate processes could have been available as Docker application during the short project time frame, a workflow composed of all WPS 1.0, ESGF CWT and WPS-T 2.0 interface could have been tested also.
+
+Since there is active works done using machine learning at CRIM and they are increasingly packaged as Docker applications, the next logical step is to start to integrate them into workflows and leverage the power of the Weaver component to execute them. Moreover, the usage of CWL workflows that can mix and match between all these interfaces is more than welcome by allowing reutilisation of existing processes and making workflows more powerful.
