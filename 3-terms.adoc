@@ -102,6 +102,7 @@ Supervised learning is the machine learning task of learning a function that map
 * C3S Copernicus Climate Change Service
 * CCCS Canadian Center for Climate Services
 * CDMS Climate Data Management System
+* CERFACS Centre Européen de Recherche et de Formation Avancée en Calcul Scientifique
 * CMIP Coupled Model Intercomparison Project
 * CRIM Computer research institute of Montreal
 * CWL	Common Workflow Language
@@ -122,6 +123,7 @@ Supervised learning is the machine learning task of learning a function that map
 * IPCC Intergovernmental Panel on Climate Change
 * IT Information Technology
 * JSON JavaScript Object Notation
+* KNMI Koninklijk Nederlands Meteorologisch Instituut
 * LLNL Lawrence Livermore National Laboratory
 * MIP Model Intercomparaison Project
 * MEP	Mission Exploitation Platform

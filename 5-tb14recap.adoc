@@ -3,6 +3,13 @@
 
 === Testbed-14 Earth Observation and Cloud (EOC) thread
 
+The following Engineering Reports are relevant to this work:
+
+* OGC Testbed-14: ADES & EMS Results and Best Practices Engineering Report cite:[TB14ADESEMS2018]
+* OGC Testbed-14: Application Package Engineering Report cite:[TB14AP2018]
+* OGC Testbed-14: Federated Clouds Engineering Report cite:[TB14FC2018]
+* OGC Testbed-14: Machine Learning Engineering Report cite:[TB14ML2018]
+
 ==== Architecture
 
 The figure below is taken from the Testbed-14 ADES&EMS best practices ER cite:[TB14ADESEMS2018] and shows the architecture adopted. The main building blocks included the Client, the Execution Management Service (EMS), the FEDEO OpenSearch gateway and an Application Deployment and Execution Service (ADES). While OpenSearch, ADES and the client play an important role in the Earth Observation and Clouds (EOC) thread of Testbed-14, they are not really considered in the current report. This report focus on an extension to the EMS allowing support of a large variety of applications types. The desired outcome is a backward compatibility with existing infrastructure, all while extending compatibility with process providers using their own interfaces.
@@ -13,7 +20,7 @@ image::images/Architecture.png[title="Final Testbed-14 EOC Thread Architecture"]
 ==== Interfaces
 ===== WPS-T REST/JSON
 
-The Testbed-14 help us to design a RESTful protocol for the WPS interface based on the cooperation of both the EOC thread and WPS SWG. The interface has been choosen to serve both the ADES and the EMS as they share the same functionality set. The complete specification, defined using OpenAPI, can be found in https://github.com/opengeospatial/D009-ADES_and_EMS_Results_and_Best_Practices_Engineering_Report/blob/master/code/ades_wpst.json. This interface proposes how to deploy, list, execute and monitor processes, as well as getting back the process result. While the specification covers more than that, these are the main operations on which this report will focus.
+The Testbed-14 help us to design a RESTful protocol for the WPS interface based on the cooperation of both the EOC thread and WPS SWG. The interface has been choosen to serve both the ADES and the EMS as they share the same functionality set. The complete specification defined using OpenAPI can be found in https://github.com/opengeospatial/D009-ADES_and_EMS_Results_and_Best_Practices_Engineering_Report/blob/master/code/ades_wpst.json[here]. This interface proposes how to deploy, list, execute and monitor processes, as well as getting back the process result. While the specification covers more than that, these are the main operations on which this report will focus.
 
 ==== Application Package
 
@@ -25,11 +32,7 @@ Application chaining is an important part of the Tesbed-14. Proposed interoperab
 
 ==== CRIM's implementation
 
-The EMS implementation is based on components of the Open Source software framework Birdhouse cite:[EHBRECHT2018]. The Twitcher [https://github.com/Ouranosinc/twitcher] component acts as a Policy Enforcement Point (PEP). It has been extended to offer an WPS 2.0 JSON proxy to WPS 1.0 endpoints, and to comply to the EMS API which involves adding the dynamic deployment of processes and CWL workflow capabilities. The Magpie [https://github.com/Ouranosinc/Magpie] component is used as an adapter to manage ACLs of deployed processes and process permissions (WPS requests) for a given user’s credentials. The following component diagram shows the relation between Twitcher and Magpie, but put the emphasis on the Twitcher component. Incoming requests initially hit the top left proxy connector, that first perform an authorization using the Magpie component. If the user is allowed, the request is forwarded by the proxy to the bottom left WPS-T interface, which implement the OpenAPI describe above. Submitted jobs are managed in a queue implemented using Celery cite:[TB13CLOUDER2017]. The handler forwards the job to a legacy WPS 1.0 PyWPS server which perform all the parameters validation. All jobs are then processed by the CWL engine which can execute the job in situ, if playing the ADES role, or an EMS forwarding it to the proper ADES based on the data source.
+The EMS implementation is based on components of the Open Source software framework Birdhouse cite:[EHBRECHT2018]. The https://github.com/Ouranosinc/twitcher[Twitcher] component acts as a Policy Enforcement Point (PEP). It has been extended to offer an WPS 2.0 JSON proxy to WPS 1.0 endpoints, and to comply to the EMS API which involves adding the dynamic deployment of processes and CWL workflow capabilities. The Magpie https://github.com/Ouranosinc/Magpie[Magpie] component is used as an adapter to manage ACLs of deployed processes and process permissions (WPS requests) for a given user’s credentials. The following component diagram shows the relation between Twitcher and Magpie, but put the emphasis on the Twitcher component. Incoming requests initially hit the top left proxy connector, that first perform an authorization using the Magpie component. If the user is allowed, the request is forwarded by the proxy to the bottom left WPS-T interface, which implement the OpenAPI describe above. Submitted jobs are managed in a queue implemented using Celery cite:[TB13CLOUDER2017]. The handler forwards the job to a legacy WPS 1.0 PyWPS server which perform all the parameters validation. All jobs are then processed by the CWL engine which can execute the job in situ, if playing the ADES role, or an EMS forwarding it to the proper ADES based on the data source.
 
 .EMS component developed by CRIM and proposed extension to other WPS interfaces.
 image::images/OGC_TB14.png[width=650,align="center"]
-
-=== Other relevant Testbed-14 work
-Federated Clouds ER cite:[TB14FC2018]
-Machine Learning ER cite:[TB14ML2018]
