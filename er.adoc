@@ -142,11 +142,9 @@ include::6-ESGFCompute.adoc[]
 
 include::7-solution.adoc[]
 
-include::8-appPackage.adoc[]
+include::8-interopExper.adoc[]
 
-include::9-ems.adoc[]
-
-include::10-discussion.adoc[]
+include::9-discussion.adoc[]
 
 // you may add any number of chapters as required here
 
@@ -154,7 +152,23 @@ include::10-discussion.adoc[]
 // Editors add or remove annexes as necessary.
 // *****************************************************************************
 
-// include::annex-a.adoc[]
+//Annex A
+include::annex-ESGF_API_example.adoc[]
+
+//Annex b
+include::annex-CWLFinch.adoc[]
+
+//Annex C
+include::annex-CWL_NASA_EDAS.adoc[]
+
+//Annex D
+include::annex-CWL_execute.adoc[]
+
+//Annex E
+include::annex-JSON_workflow1.adoc[]
+
+//Annex F
+include::annex-JSON_workflow1_body.adoc[]
 
 // *****************************************************************************
 // Revision History should be the last annex before the Bibliography.

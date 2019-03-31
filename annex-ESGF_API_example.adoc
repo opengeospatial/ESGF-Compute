@@ -1,0 +1,26 @@
+[appendix]
+[[CWT_API_sample]]
+= Sample Python code for ESGF CWT API
+
+.JSON file of a CWT process execute body
+[source,python]
+----
+import esgf
+
+NH = esgf.Domain(dimensions=[
+  esgf.Dimension(0.0, 90.0, esgf.Dimension.values, name='latitude'),
+],
+name = 'd0')
+
+tas = esgf.Variable('http://.../tas.nc', 'tas', name='v0', domains=[NH])
+
+wps = esgf.WPS('http://.../wps')
+
+avg = wps.get_process('averager.mv')
+
+parameters = [
+  esgf.NamedParameter('axes', 'latitude'),
+]
+
+avg.execute([tas], domain=None, parameters)
+----

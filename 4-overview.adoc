@@ -5,10 +5,20 @@
 
 (( Section 6 describes the ESGF Compute Challenge, an community effort into which this activity has been coordinated. ))
 
-(( Section 7 presents the solution developed in this activity. ))
+(( Section 7 presents the solution developed in this activity. It documents the execution management system and its extension to the ESGF Compute Working Team API. ))
 
-(( Section 8 introduces the application package that was adapted to demonstrate climate applications in workflow environments. The section also lists the relevant climate processes and data used for interoperability experiments.))
+(( Section 8 introduces the workflows and application packages created for interoperability experiments with ESGF API. It also lists the relevant climate processes and data used.))
 
-(( Section 9 further documents the execution management system and its extension to the ESGF Compute Working Team API. ))
+(( Section 9 lists issues of interest and findings that the work performed by the Participants allowed to identify. ))
 
-(( Section 10 lists issues of interest and findings that the work performed by the Participants allowed to identify. ))
+(( Annex A provides a client-side Python sample through ESGF CWT API. ))
+
+(( Annex B provides a CWL file for the ice_days process of Finch WPS 1.0 provider. Finch is a component used to compute climate indices.))
+
+(( Annex C provides a CWL file for the subset process of NASA Earth Data Analytic Services provider, exposed through ESGF CWT API. ))
+
+(( Annex D provides a JSON file, containing all required inputs and outputs for a EWSGF CWT API process.))
+
+(( Annex E provides a JSON file for WPS 1.0 workflow of climate processes.))
+
+(( Annex F provides a JSON file the request body of a WPS 1.0 workflow.))

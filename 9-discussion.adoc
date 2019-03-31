@@ -1,0 +1,28 @@
+[[Discussion]]
+== Discussion
+
+=== Limitations
+One big downside of the ESGF WPS versus standard WPS is that the inputs must be explicitly described in the deployment of a process (for standard WPS, the deployment of a process requires only its url).
+
+We could identify a specific set of inputs that we want to support and include them in a shared interface between deployed ESGF processes. That way, the deployment of a process would be much more succinct. The 'DescribeProcess' command would still show all the inputs available
+
+Here are the inputs that would be easy to include in the interface:
+
+* Common domain variables:
+** Latitude (min and max)
+** Longitude (min and max)
+** Time (min and max)
+* Variables (datasets urls and variable name)
+
+And these inputs would need to be investigated as to how to implement them:
+
+* Custom domain variables (their name is provided by the user at execution time, not at deploy time)
+* Mask
+* Axis
+* Gridder
+
+=== Applicability to machine learning
+
+It has been shown with the previous workflows that interoperability between WPS 1.0 and ESGF CWT interface can be achieved with the Weaver component. If climate processes could have been available as Docker application during the short project time frame, a workflow composed of all WPS 1.0, ESGF CWT and WPS-T 2.0 interface could have been tested also.
+
+Since there is active works done using machine learning at CRIM and they are increasingly packaged as Docker applications, the next logical step is to start to integrate them into workflows and leverage the capabilities of the Weaver EMS component to execute them. Moreover, the usage of CWL workflows that can mix and match between all these interfaces is more than welcome by allowing reutilization of existing processes and making workflows more powerful.

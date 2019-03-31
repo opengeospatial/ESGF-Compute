@@ -1,2 +1,0 @@
-[[AppPackage]]
-== Applications and processes

@@ -110,6 +110,7 @@ Supervised learning is the machine learning task of learning a function that map
 * DKRZ Deutsches Klimarechenzentrum
 * DOE U.S. Department of Energy
 * ECCC Environment and Climate Change Canada
+* EDAS Earth Data Analytic Services
 * EMS	Execution Management Service
 * EO Earth Observation
 * EOC	Earth Observation Clouds

@@ -1,0 +1,63 @@
+[appendix]
+[[CWL_WPS1_Finch]]
+= CWL file for WPS 1.0 provider
+
+.CWL file for the ice_days process of Finch WPS 1.0 provider
+[source,json]
+----
+{
+  "cwlVersion": "v1.0",
+  "$namespaces": {
+    "edam": "http://edamontology.org/"
+  },
+  "class": "CommandLineTool",
+  "hints": {
+    "WPS1Requirement": {
+      "process": "ice_days",
+      "provider": "https://finch.crim.ca/wps"
+    }
+  },
+  "inputs": {
+    "tasmax": {
+      "default": {
+        "mimeType": "application/x-netcdf",
+        "schema": null,
+        "encoding": "base64"
+      },
+      "type": {
+        "items": "File",
+        "type": "array"
+      },
+      "format": "edam:format_3650"
+    },
+    "freq": {
+      "default": "YS",
+      "type": {
+        "symbols": [
+          "YS",
+          "MS",
+          "QS-DEC",
+          "AS-JUL"
+        ],
+        "type": "enum"
+      }
+    }
+  },
+  "outputs": {
+    "output_netcdf": {
+      "outputBinding": {
+        "glob": "output_netcdf.nc"
+      },
+      "type": "File",
+      "format": "edam:format_3650"
+    },
+    "output_log": {
+      "outputBinding": {
+        "glob": "output_log.*"
+      },
+      "type": "File",
+      "format": "edam:format_1964"
+    }
+  }
+}
+----
