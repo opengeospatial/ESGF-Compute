@@ -1,0 +1,77 @@
+[appendix]
+[[CVMTerms]]
+= CVM: Default JSON response
+
+.Default JSON response of the CVM
+[source,json]
+----
+{
+    "results": [
+        {
+            "id": "4d2fda7b59b1092b2b028f8ddb3d2e01",
+            "uri": "http://api.nsgreg.nga.mil/codelist/ConveyanceType/automobile",
+            "type": [
+                "individual",
+                "concept"
+            ],
+            "primary": false,
+            "prefix": "codelist",
+            "version": "1.0",
+            "label": "automobile",
+            "description": "Definition: A motor vehicle generally with four wheels that carries a small number of passengers.  Description: [None Specified]",
+            "namespace": "http://api.nsgreg.nga.mil/codelist/ConveyanceType/",
+            "localName": "automobile",
+            "qname": "codelist:automobile",
+            "category": [
+                "Individual",
+                "additionalProperties"
+            ]
+        },
+        {
+            "id": "c595cd29703ee5d500de62bb3d9fe1ed",
+            "uri": "http://api.nsgreg.nga.mil/codelist/ConveyanceType/autoRickshaw",
+            "type": [
+                "individual",
+                "concept"
+            ],
+            "primary": false,
+            "prefix": "codelist",
+            "version": "1.0",
+            "label": "autoRickshaw",
+            "description": "Definition: A motorized vehicle usually with three wheels having a space to carry a few passengers or a small load of freight.  Description: [None Specified]",
+            "namespace": "http://api.nsgreg.nga.mil/codelist/ConveyanceType/",
+            "localName": "autoRickshaw",
+            "qname": "codelist:autoRickshaw",
+            "category": [
+                "Individual",
+                "additionalProperties"
+            ]
+        },
+        {
+            "id": "1950c9a8a53fafe317cc22c825f50125",
+            "uri": "http://api.nsgreg.nga.mil/codelist/ConveyanceType/barge",
+            "type": [
+                "individual",
+                "concept"
+            ],
+            "primary": false,
+            "prefix": "codelist",
+            "version": "1.0",
+            "label": "barge",
+            "description": "Definition: A flat-bottomed freight-carrying watercraft that is propelled (for example: towed or pushed) by a separate watercraft (for example: a tug).  Description: [None Specified]",
+            "namespace": "http://api.nsgreg.nga.mil/codelist/ConveyanceType/",
+            "localName": "barge",
+            "qname": "codelist:barge",
+            "category": [
+                "Individual",
+                "additionalProperties"
+            ]
+        }
+    ],
+    "page": {
+        "size": 3,
+        "number": 0,
+        "totalElements": 26
+    }
+}
+----

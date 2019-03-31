@@ -170,6 +170,12 @@ include::annex-JSON_workflow1.adoc[]
 //Annex F
 include::annex-JSON_workflow1_body.adoc[]
 
+//Annex G
+include::annex-JSON_workflow2_LLNL.adoc[]
+
+//Annex H
+include::annex-JSON_workflow2_NASA.adoc[]
+
 // *****************************************************************************
 // Revision History should be the last annex before the Bibliography.
 // Bibliography should be the last annex.

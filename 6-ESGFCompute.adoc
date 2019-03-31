@@ -24,7 +24,6 @@ As of early 2019, the priorities of ESGF are as follows:
 On that last element, the Compute Working Team (CWT) currently conducts iterative deployments and tests to stand up multiple production-ready, officially certified ESGF compute nodes. This effort includes data selection, security scans, API development, scalability tests, documentation updates, and regular status reports. The current Engineering Report is one of the contributions to this challenge.
 
 === Implementations
-
 The ESGF Compute Challenge participants completed various experiments and integrations. The EMS implementation described in this report is based on components from both Birdhouse and PAVICS. The <<solution, Solution>> described in this report focus on providing access to deployed ESGF CWT API processes and providers in application packages and workflows. Future work includes exposing application packages through ESGF CWT API, either manually or dynamically. Below is a list of the various systems and frameworks involved in the Compute Challenge.
 
 * https://computation.llnl.gov/projects/aims-analytics-and-informatics-management-systems[AIMS] - Analytics and Informatics Management Systems, LLNL.
@@ -38,32 +37,31 @@ The ESGF Compute Challenge participants completed various experiments and integr
 As of early April, only AIMS and EDAS offered endpoint implementing the ESGF Compute Working Team API. Interoperability experiments conducted on these providers for this work are described in <<Solution, Section 7>> and <<TIEs, Section 8>>.
 
 === ESGF Compute Working Team API
-
 A reference server implementation of a https://github.com/ESGF/esgf-compute-wps[Compute Node] is also offered, while certifications datasets are listed in a https://docs.google.com/document/d/1pxz1Kd3JHfFp8vR2JCVBfApbsHmbUQQstifhGNdc6U0/edit?usp=sharing[GoogleDocs] living document. The process requirements are defined https://github.com/ESGF/esgf-compute-api/blob/devel/docs/source/cwt.compat.rst[on GitHub]. These are partially duplicated below for convenience.
 
 === Inputs
-The datainputs parameter will consist of the following three types.
+The datainputs parameter consists of the following three types.
 
 * Domain
 * Variable
 * Operation
 
 ==== Domain
-This WPS input should use the identifier domain. The input will be passed an array of domains that are comprised of one or more dimensions.
+This WPS input should use the identifier domain. The input is passed an array of domains that are comprised of one or more dimensions.
 
 * id [Required]
 * mask [Optional]
 * One ore more dimensions keyed using a descriptive identifier. [Required]
 
 ==== Variable
-This WPS input should use the identifier variable. The input will be passed an array of variables that define all inputs for the process.
+This WPS input should use the identifier variable. The input is passed an array of variables that define all inputs for the process.
 
 * id [Required] - Can be extended with a | followed by an identifier that will be used to reference the Variable
 * uri [Required]
 * domain [Optional]
 
 ==== Operation
-This WPS input should use the identifier operation. The input will be passed an array of operations.
+This WPS input should use the identifier operation. The input is passed an array of operations.
 
 * name [Required]
 * input [Required] - List of inputs
