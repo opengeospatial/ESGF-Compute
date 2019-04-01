@@ -2,7 +2,7 @@
 [[CWT_API_sample]]
 = Sample Python code for ESGF CWT API
 
-.JSON file of a CWT process execute body
+.Sample Python code for ESGF CWT API
 [source,python]
 ----
 import esgf

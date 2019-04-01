@@ -32,7 +32,7 @@ Application chaining is an important part of the Tesbed-14. Proposed interoperab
 
 ==== CRIM's implementation
 
-The EMS implementation is based on components of the Open Source software framework Birdhouse cite:[EHBRECHT2018]. The https://github.com/Ouranosinc/twitcher[Twitcher] component acts as a Policy Enforcement Point (PEP). It has been extended to offer an WPS 2.0 JSON proxy to WPS 1.0 endpoints, and to comply to the EMS API which involves adding the dynamic deployment of processes and CWL workflow capabilities. The Magpie https://github.com/Ouranosinc/Magpie[Magpie] component is used as an adapter to manage ACLs of deployed processes and process permissions (WPS requests) for a given user’s credentials. The following component diagram shows the relation between Twitcher and Magpie, but put the emphasis on the Twitcher component.
+The EMS implementation is based on components of the Open Source software framework Birdhouse cite:[EHBRECHT2018]. The https://github.com/Ouranosinc/twitcher[Twitcher] component acts as a Policy Enforcement Point (PEP). It has been extended to offer an WPS 2.0 JSON proxy to WPS 1.0 endpoints, and to comply to the EMS API which involves adding the dynamic deployment of processes and CWL workflow capabilities. The https://github.com/Ouranosinc/Magpie[Magpie] component is used as an adapter to manage ACLs of deployed processes and process permissions (WPS requests) for a given user’s credentials. The following component diagram shows the relation between Twitcher and Magpie, but put the emphasis on the Twitcher component.
 
 .EMS component developed by CRIM and proposed extension to other WPS interfaces.
 image::images/OGC_TB14.png[width=650,align="center"]

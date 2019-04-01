@@ -1,8 +1,8 @@
 [appendix]
 [[JSON_WPS1_workflow_body]]
-= JSON file for a WPS 1.0 workflow
+= JSON file for the WPS 1.0 workflow execute request body
 
-.JSON file for the WPS 1.0 workflow
+.JSON file for the WPS 1.0 workflow execute request body
 [source,json]
 ----
 {
