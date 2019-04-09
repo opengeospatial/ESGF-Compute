@@ -1,9 +1,11 @@
 [[Solution]]
 == Solution
 
-The goal of the extension presented in this report is the improvement of the EMS in order to increase compatibility across existing systems. The EMS provided for Testbed-14 offers a WPS-T 2.0 interface, yet should be able to run multiple application types and use them in heterogeneous workflows. Using a single interface should allow execution of a large array of existing applications and moreover use them inside workflows. Two new application types are considered in this project. The first is for backward compatibility and consist of execution existing process served by WPS 1.0 endpoint. The second is to broaden furthermore the application scope by covering the <<ESGFCompute, ESGF Compute Working Team (CWT) API>>.
+Section 7 presents the solution adapting Testbed-14 implementations towards interoperability with ESGF compute nodes. The section revisits the architecture, introduces two new profiles and offers code samples for integration of deployed services into workflows.
 
 === Architecture
+
+The goal of the extension presented in this report is the improvement of the EMS in order to increase compatibility across existing systems. The EMS provided for Testbed-14 offers a WPS-T 2.0 interface, yet should be able to run multiple application types and use them in heterogeneous workflows. Using a single interface should allow execution of a large array of existing applications and moreover use them inside workflows. Two new application types are considered in this project. The first is for backward compatibility and consist of execution existing process served by WPS 1.0 endpoint. The second is to broaden furthermore the application scope by covering the <<ESGFCompute, ESGF Compute Working Team (CWT) API>>.
 
 Multiple approaches have been considered to achieve this goal. The first approach is to keep the EMS as is, package every type of application into Docker images, and provide alongside them a CWL describing invocation mechanisms. However, packaging existing providers would yield a huge docker images with multiple processes. This could simply prove impossible for external providers for which the code is unavailable. The second approach, much simpler, defeat however one of the principle of the Testbed-14 which is to bring the application to the data. This approach consist of packaging all the information required to make a standard WPS 1.0 or ESGF CWT API request.
 
@@ -16,7 +18,13 @@ In Testbed-14, CRIM's EMS implementation was all contained in a component named 
 
 === Application Package
 
-As mentioned in the previous section, the DeployProcess document conforms to the existing API but requires fewer optional elements. Using the wpsApplication deployment profile name, it only requires the process id and an execution unit referencing a WPS 1.0 endpoint. Inputs, outputs and CWL file can be implicitly deduced.
+This subsection describes the various application profiles developed and introduces their integration into workflow. Subsetting and climate indices calculation are also introduced as key processes relevant to ESGF.
+
+==== Process deployment
+
+The DeployProcess document conforms to the existing API but requires fewer optional elements. Using the wpsApplication deployment profile name, it only requires the process id and an execution unit referencing a WPS 1.0 endpoint. Inputs, outputs and CWL file can be implicitly deduced.
+
+Below is a JSON file deploying a WPS 1.0 endpoint offering computation of climate indices. In this case, the WPS component named https://github.com/bird-house/finch[Finch] exposes the https://xclim.readthedocs.io/en/latest/readme.html[xclim] Python library developed by Ouranos. This library is based on http://xarray.pydata.org/en/stable/[xarray] and benefit from the parallelization provided by https://dask.org/[dask]. XClim has for objective is to make it as simple as possible for users to compute indices from large climate datasets, and for scientists to write new indices with very little boilerplate. The example below returns _Ice Days_, which takes into account the number of days in which the temperature never rises above 0 degrees Celsius and stays below freezing point.
 
 .JSON file for a WPS 1.0 process deploy request
 [source,json]
@@ -36,7 +44,7 @@ As mentioned in the previous section, the DeployProcess document conforms to the
 }
 ----
 
-For the ESGF CWT processes, the CWL must be provided as a reference or inlined, since parameter mapping is more involved than for the WPS 1.0.
+For the ESGF CWT processes, the CWL must be provided as a reference or inlined, since parameter mapping is more involved than for the WPS 1.0. This is discussed further in the <<Discussion, Discussion>> section. Below is a JSON file deploying a WPS 1.0 endpoint enforcing the ESGF CWT API. In that case, the example is a subsetting process offered by NASA EDAS. This process is conceptually similar to setting an area and time of interest to Earth observation data, and returning the extracted data.
 
 .JSON file for a ESGF CWT process deploy request
 [source,json]
@@ -57,6 +65,8 @@ For the ESGF CWT processes, the CWL must be provided as a reference or inlined, 
     "deploymentProfileName": "http://www.opengis.net/profiles/eoc/ESGFWpsApplication"
 }
 ----
+
+==== Workflow integration
 
 The CWL file is modified so that the CWL engine can instantiate the appropriate job implementation. To that effect, the hints section of the CWL file are used. This replaces the traditional DockerRequirement value for extensions requirements, which are WPS1Requirement and ESGF-CWTRequirement. Under that key, a dictionary containing all the parameters required to make an execute request to WPS 1.0 provider is added. The only difference with the CWL provided during Testbed-14 is the hints section declaring the WPS1Requirement and two parameters: the provider endpoint and the process which is wrapped. The file format is also now enforced in the CWL file. Below, a CWL example file describes one of the climate processes for the WPS 1.0 provider. A full example of the CWL file, containing inputs and outputs, can be found in <<CWL_WPS1_Finch, Annex B>>.
 
@@ -81,7 +91,7 @@ The CWL file is modified so that the CWL engine can instantiate the appropriate 
 }
 ----
 
-When the CWL engine encounters the file presented above, it recognizes the WPS1Requirement thus creating a WPS 1.0 Job. That job uses the same interface than the WPS-T 2.0 Job, but rather than deploying and executing an application on a remote ADES it call the WPS 1.0 execute request of the provider and process given in parameters. The result is then fetched like for the ADES implementation. In the following CWL excerpts the ESGF-CWTRequirement triggers the creation of CWT Job that will use the ESGF-compute-api Python package to run the process with a proper parameters mapping. Once again there is no deployment involved and once the process execution complete, the result is fetched. A full example of the CWL file, containing inputs and outputs, can be found in <<CWL_WPS1_EDAS, Annex C>>.
+When the CWL engine encounters the file presented above, it recognizes the WPS1Requirement thus creating a WPS 1.0 Job. That job uses the same interface than the WPS-T 2.0 Job, but rather than deploying and executing an application on a remote ADES it call the WPS 1.0 execute request of the provider and process given in parameters. The result is then fetched like for the ADES implementation. In the following CWL excerpt, the ESGF-CWTRequirement triggers the creation of CWT Job that will use the ESGF-compute-api Python package to run the process with a proper parameters mapping. Once again there is no deployment involved and once the process execution complete, the result is fetched. A full example of the CWL file, containing inputs and outputs, can be found in <<CWL_WPS1_EDAS, Annex C>>.
 
 .Excerpt of CWL file for the NASA EDAS Subset process
 [source,json]

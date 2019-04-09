@@ -1,6 +1,8 @@
 [[TIEs]]
 == Applications and workflows
 
+Section 8 documents interoperability experiments conducted between CRIM's EMS, LLNL AIMS and NASA EDAS endpoints in context of ESGF compute challenge. The section presents execution body samples and workflows. 
+
 === ESGF CWT Applications
 
 Currently, only a small portion of the ESGF WPS processing is implemented in Weaver. This is largely due to the fact that ESGF WPS inputs are nested, and this nested structure must be translated to a flat one to correspond to standard WPS inputs or to Weaver's inputs. Some of these nested parameters are easy to implement, because they are always the same across each process, but others can't be automatically queried. A full example JSON file, containing all required inputs and outputs for the process, can be found in <<JSON_CWT_execute, Annex D>>. Below is an excerpt of an execution body.

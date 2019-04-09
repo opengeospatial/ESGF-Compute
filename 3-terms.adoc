@@ -15,12 +15,12 @@ Object-oriented data management system specialized for organizing multidimension
 * CMIP
 
 // ESGF Face to Face report 2017
-Sponsored by the World Climate Research Programme’s Working Group on Coupled Modeling, CMIP is a community-based infrastructure for climate model diagnosis, validation, intercomparison, documentation, and data access (cmip-pcmdi.llnl.gov).
+Sponsored by the World Climate Research Programme’s Working Group on Coupled Modeling, CMIP is a community-based infrastructure for climate model diagnosis, validation, intercomparison, documentation, and data access.
 
 * CORDEX
 
 // ESGF Face to Face report 2017
-Provides global coordination of regional climate downscaling for improved regional climate change adaptation and impact assessment (cordex.org).
+Provides global coordination of regional climate downscaling for improved regional climate change adaptation and impact assessment.
 
 * CREATE (Collaborative REAnalysis Technical Environment)
 
@@ -32,10 +32,9 @@ NASA project that centralizes numerous global reanalysis data sets into a single
 //Wikipedia
 Controlled vocabularies provide a way to organize knowledge for subsequent retrieval. They are used in subject indexing schemes, subject headings, thesauri, taxonomies and other forms of knowledge organization systems.
 
-* Dataset
+* Dask
 
-//[SOURCE: ISO 19115-1:2014, 4.3]
-Identifiable collection of data.
+Dask is a flexible library for parallel computing in Python. It offers dynamic task scheduling optimized for computation and “Big Data” collections.
 
 * Deep learning
 
@@ -46,11 +45,6 @@ Deep Learning is a class of machine learning algorithms that: use a cascade of m
 
 //Wikipedia
 A deep neural network (DNN) is an artificial neural network (ANN) with multiple layers between the input and output layers. See Artificial Neural Network.
-
-* DOI (Digital Object Identifier)
-
-// ESGF Face to Face report 2017
-Serial code used to uniquely identify content of various types of electronic networks; particularly used for electronic documents such as journal articles (en.wikipedia.org/wiki/Digital_object_identifier).
 
 * HDF (Hierarchical Data Format)
 
@@ -86,10 +80,18 @@ Database used by the CMIP modeling community for comparing satellite observation
 //http://docs.opengeospatial.org/per/17-040.html#_terms_and_definitions
 Set of one or more base standards and - where applicable - the identification of chosen clauses, classes, subsets, options and parameters of those base standards that are necessary for accomplishing a particular function [ISO 19101, ISO 19106].
 
+* STRATUS (Synchronization Technology Relating Analytic Transparently Unified Services)
+
+NASA project offering an integrative framework presenting a unified API and workflow orchestration for varied climate data analytic services.
+
 * Supervised Learning
 
 //Wikipedia
 Supervised learning is the machine learning task of learning a function that maps an input to an output based on example input-output pairs. It infers a function from labeled training data consisting of a set of training examples.
+
+* xarray
+
+Xarray is an open source project and Python package focused on multi-dimensional arrays. It includes a library of domain-agnostic functions for advanced analytics and visualization with these data structures.
 
 ===	Abbreviated terms
 
@@ -126,10 +128,10 @@ Supervised learning is the machine learning task of learning a function that map
 * JSON JavaScript Object Notation
 * KNMI Koninklijk Nederlands Meteorologisch Instituut
 * LLNL Lawrence Livermore National Laboratory
-* MIP Model Intercomparaison Project
 * MEP	Mission Exploitation Platform
 * ML Machine Learning
 * NASA National Aeronautics and Space Administration
+* NCCS NASA Center for Climate Simulation
 * NRCan Natural Resources Canada
 * OAS3 OpenAPI 3 Specification
 * OPeNDAP Open-Source Project for a Network Data Access Protocol
@@ -137,6 +139,7 @@ Supervised learning is the machine learning task of learning a function that map
 * PCIC Pacific Climate Impacts Consortium
 * OWS	OGC Web Services
 * REST REpresentational State Transfer
+* STRATUS Synchronization Technology Relating Analytic Transparently Unified Services
 * SWG Software Working Group
 * TB Testbed
 * TEP	Thematic Exploitation Platform

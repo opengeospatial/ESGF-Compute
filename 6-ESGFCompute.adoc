@@ -1,7 +1,12 @@
 [[ESGFCompute]]
 == ESGF Compute Challenge
+
+Section 6 presents the Earth System Grid Federation (ESGF) collaborative effort and introduces its recent Compute challenge. The section also presents some of ESGF requirements, priorities, solutions and contributed implementations.
+
 === Background information
-Addressing “big data” challenges in Earth system research, ESGF is an international collaboration of computer scientists, data scientists, and climate researchers. The federation houses an enormous database of global observational and simulation data — more than 5 petabytes — and manages the high-performance computing (HPC) hardware and software infrastructure necessary for scientific climate research. In the nearly two decades since its launch, ESGF has grown to serve 25,000 users on 6 continents cite:[auten20187th].
+Led by the U.S. Department of Energy’s (DOE) Office of Biological and Environmental Research (BER), ESGF is an international multi-agency federation that develops, deploys, and maintains software to facilitate advancements in geophysical science. ESGF’s open-source, operational code base disseminates model simulation, observational, and reanalysis data for research assessments and model validation via secure storage and dissemination of petabytes of data. More details can be found in https://esgf.llnl.gov/esgf-media/pdf/2017-ESGF-Brochure.pdf[ESGF Brochure].
+
+Addressing “big data” challenges in Earth system research, ESGF is a collaboration of numerous computer scientists, data scientists, and climate researchers. The federation houses an enormous database of global observational and simulation data — more than 5 petabytes — and manages the high-performance computing (HPC) hardware and software infrastructure necessary for scientific climate research. In the nearly two decades since its launch, ESGF has grown to serve 25,000 users on 6 continents cite:[auten20187th].
 
 The following publications offer a thorough view on various challenges and requirements of ESGF:
 
@@ -34,33 +39,39 @@ The ESGF Compute Challenge participants completed various experiments and integr
 * https://github.com/OphidiaBigData/ophidia-analytics-framework[Ophidia] Analytics Framework, CMCC. See cite:[FIORE2016].
 * https://ouranosinc.github.io/pavics-sdi/[PAVICS] - Platform for the Analysis and Visualization of Climate Science, Ouranos/CRIM. See cite:[AGU2017FMIN21D0060G].
 
-As of early April, only AIMS and EDAS offered endpoint implementing the ESGF Compute Working Team API. Interoperability experiments conducted on these providers for this work are described in <<Solution, Section 7>> and <<TIEs, Section 8>>.
+EDAS can be used as an analytics engine for the ESGF through STRATUS, an integrative framework developed at NASA NCCS. STRATUS presents a unified API and workflow orchestration for varied climate data analytic services. Below are its primary requirements, as listed in its https://github.com/nasa-nccs-cds/stratus/blob/master/docs/STRATUS-WhitePaper-1.0.pdf[white paper]:
+
+* Modular Endpoints: Requires a common endpoint API that can be used to wrap any analytic operator and expose it as an instantiation of a singular analytic module interface.
+* Modular Layers: Requires a technology-agnostic architectural layer specification adhering to a common API, which can be instantiated using a wide range of applicable technologies.
+* A common language: Requires a common request-response language for describing workflows that can be assimilated and understood by all of the architectural layers and endpoints.
+
+As of early April, only AIMS and EDAS offered endpoint implementing the ESGF Compute Working Team API. Interoperability experiments conducted on these providers for this work are documented in <<Solution, Section 7>> and <<TIEs, Section 8>>, while the API is briefly described below.
 
 === ESGF Compute Working Team API
-A reference server implementation of a https://github.com/ESGF/esgf-compute-wps[Compute Node] is also offered, while certifications datasets are listed in a https://docs.google.com/document/d/1pxz1Kd3JHfFp8vR2JCVBfApbsHmbUQQstifhGNdc6U0/edit?usp=sharing[GoogleDocs] living document. The process requirements are defined https://github.com/ESGF/esgf-compute-api/blob/devel/docs/source/cwt.compat.rst[on GitHub]. These are partially duplicated below for convenience.
+The ESGF Compute Working Team (CWT) is working to improve interoperability and compute capabilities within the federation using Web services technology. The Open Geographic Consortium (OGC) Web Processing Service (WPS) standard has been selected to ensure machine-to-machine interoperability. A reference server implementation of a https://github.com/ESGF/esgf-compute-wps[Compute Node] is offered. Certifications datasets are listed in a https://docs.google.com/document/d/1pxz1Kd3JHfFp8vR2JCVBfApbsHmbUQQstifhGNdc6U0/edit?usp=sharing[GoogleDocs] living document. The process requirements are defined https://github.com/ESGF/esgf-compute-api/blob/devel/docs/source/cwt.compat.rst[on GitHub]. These requirements are partially duplicated below for convenience.
 
-=== Inputs
+==== Inputs
 The datainputs parameter consists of the following three types.
 
 * Domain
 * Variable
 * Operation
 
-==== Domain
+===== Domain
 This WPS input should use the identifier domain. The input is passed an array of domains that are comprised of one or more dimensions.
 
 * id [Required]
 * mask [Optional]
 * One ore more dimensions keyed using a descriptive identifier. [Required]
 
-==== Variable
+===== Variable
 This WPS input should use the identifier variable. The input is passed an array of variables that define all inputs for the process.
 
 * id [Required] - Can be extended with a | followed by an identifier that will be used to reference the Variable
 * uri [Required]
 * domain [Optional]
 
-==== Operation
+===== Operation
 This WPS input should use the identifier operation. The input is passed an array of operations.
 
 * name [Required]
@@ -71,7 +82,7 @@ This WPS input should use the identifier operation. The input is passed an array
 * gridder [Optional]
 * Zero or more additional parameters [Optional]
 
-=== Output
+==== Output
 The WPS process should only have a single output whose identifier is output.
 
 * uri [Required]
