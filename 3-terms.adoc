@@ -5,27 +5,31 @@ For the purposes of this report, the definitions specified in Clause 4 of the OW
 * AIMS (Analytics and Informatics Management Systems)
 
 // ESGF Face to Face report 2017
-Program at LLNL enabling data discovery and knowledge integration across the scientific climate community.
+Program at LLNL enabling data discovery and knowledge integration across the scientific climate community. (https://aims.llnl.gov/[AIMS])
+
+* CDAT (Community Data Analysis Tools)
+
+CDAT is a powerful and complete front-end to a rich set of visual-data exploration and analysis capabilities well suited for data analysis problems. (https://cdat.llnl.gov/[CDAT])
 
 * CDMS (Climate Data Management System)
 
 // ESGF Face to Face report 2017
-Object-oriented data management system specialized for organizing multidimensional gridded data used in climate analyses for data observation and simulation
+Object-oriented data management system specialized for organizing multidimensional gridded data used in climate analyses for data observation and simulation. (https://cdat.llnl.gov/documentation/cdms/cdms.html[CDMS])
 
 * CMIP
 
 // ESGF Face to Face report 2017
-Sponsored by the World Climate Research Programme’s Working Group on Coupled Modeling, CMIP is a community-based infrastructure for climate model diagnosis, validation, intercomparison, documentation, and data access.
+Sponsored by the World Climate Research Programme’s Working Group on Coupled Modeling, CMIP is a community-based infrastructure for climate model diagnosis, validation, intercomparison, documentation, and data access. (https://www.wcrp-climate.org/wgcm-cmip[CMIP])
 
 * CORDEX
 
 // ESGF Face to Face report 2017
-Provides global coordination of regional climate downscaling for improved regional climate change adaptation and impact assessment.
+Provides global coordination of regional climate downscaling for improved regional climate change adaptation and impact assessment. (http://www.cordex.org/[CORDEX])
 
 * CREATE (Collaborative REAnalysis Technical Environment)
 
 // ESGF Face to Face report 2017
-NASA project that centralizes numerous global reanalysis data sets into a single advanced data analytics platform
+NASA project that centralizes numerous global reanalysis data sets into a single advanced data analytics platform. (https://cds.nccs.nasa.gov/tools-services/create/[CREATE])
 
 * Controlled vocabulary
 
@@ -34,7 +38,7 @@ Controlled vocabularies provide a way to organize knowledge for subsequent retri
 
 * Dask
 
-Dask is a flexible library for parallel computing in Python. It offers dynamic task scheduling optimized for computation and “Big Data” collections.
+Dask is a flexible library for parallel computing in Python. It offers dynamic task scheduling optimized for computation and “Big Data” collections. (https://dask.org/[Dask])
 
 * Deep learning
 
@@ -46,15 +50,23 @@ Deep Learning is a class of machine learning algorithms that: use a cascade of m
 //Wikipedia
 A deep neural network (DNN) is an artificial neural network (ANN) with multiple layers between the input and output layers. See Artificial Neural Network.
 
+* Downscaling
+
+A method that can provide climate model outputs at a finer resolution than their original resolution. Two different approaches are prioritized: statistical downscaling and dynamical downscaling.
+
 * HDF (Hierarchical Data Format)
 
 // ESGF Face to Face report 2017
 Data model, library, and file format for storing and managing a wide variety of high-volume and complex data types
 
+* Index (climate index)
+
+Term used to refer to properties of the climate that are not measured in the field or calculated by climate models but rather that are calculated or derived from climate variables such as temperature and precipitation. Examples include the number of growing degree-days, freeze-thaw cycles, and the drought code index. (see variable)
+
 * IS-ENES (Infrastructure for the European Network for Earth System Modeling)
 
 // ESGF Face to Face report 2017
-Distributed einfrastructure of ENES models, model data, and metadata (is.enes.org).
+IS-ENES3 is the third phase project of the distributed e-infrastructure of models, model data and metadata of the European Network for Earth System Modelling. (https://is.enes.org/[IS-ENES3]).
 
 * netCDF (Network Common Data Form)
 
@@ -73,7 +85,7 @@ Architecture for data transport including standards for encapsulating structured
 * Obs4MIPs (Observations for Model Intercomparisons)
 
 // ESGF Face to Face report 2017
-Database used by the CMIP modeling community for comparing satellite observations with climate model predictions (earthsystemcog.org/projects/obs4mips/).
+Database used by the CMIP modeling community for comparing satellite observations with climate model predictions. (https://esgf-node.llnl.gov/projects/obs4mips/[obs4mips])
 
 * Profile
 
@@ -89,9 +101,13 @@ NASA project offering an integrative framework presenting a unified API and work
 //Wikipedia
 Supervised learning is the machine learning task of learning a function that maps an input to an output based on example input-output pairs. It infers a function from labeled training data consisting of a set of training examples.
 
-* xarray
+* Variable (climate variable)
 
-Xarray is an open source project and Python package focused on multi-dimensional arrays. It includes a library of domain-agnostic functions for advanced analytics and visualization with these data structures.
+The term climate variable is used to refer to a variable that can be measured directly in the field (at meteorological stations for example) or that is calculated by climate models. (See Index)
+
+* Xarray
+
+Xarray is an open source project and Python package focused on multi-dimensional arrays. It includes a library of domain-agnostic functions for advanced analytics and visualization with these data structures. (http://xarray.pydata.org/en/stable/[Xarray])
 
 ===	Abbreviated terms
 
@@ -103,9 +119,7 @@ Xarray is an open source project and Python package focused on multi-dimensional
 * BER Biological and Environment Research
 * C3S Copernicus Climate Change Service
 * CCCS Canadian Center for Climate Services
-* CDMS Climate Data Management System
 * CERFACS Centre Européen de Recherche et de Formation Avancée en Calcul Scientifique
-* CMIP Coupled Model Intercomparison Project
 * CRIM Computer research institute of Montreal
 * CWL	Common Workflow Language
 * CWT Compute Working Team
@@ -133,13 +147,11 @@ Xarray is an open source project and Python package focused on multi-dimensional
 * NASA National Aeronautics and Space Administration
 * NCCS NASA Center for Climate Simulation
 * NRCan Natural Resources Canada
-* OAS3 OpenAPI 3 Specification
 * OPeNDAP Open-Source Project for a Network Data Access Protocol
 * PAVICS Power Analytics and Visualization for Climate Science
 * PCIC Pacific Climate Impacts Consortium
 * OWS	OGC Web Services
 * REST REpresentational State Transfer
-* STRATUS Synchronization Technology Relating Analytic Transparently Unified Services
 * SWG Software Working Group
 * TB Testbed
 * TEP	Thematic Exploitation Platform
@@ -147,7 +159,6 @@ Xarray is an open source project and Python package focused on multi-dimensional
 * TOI	Time Of Interest
 * URI Uniform Resource Identifier
 * URL Uniform Resource Locator
-* UV-CDAT Ultrascale Visualization–Climate Data Analysis Tools
 * VM Virtual Machine
 * WFS Web Feature Service
 * WPS	Web Processing Service

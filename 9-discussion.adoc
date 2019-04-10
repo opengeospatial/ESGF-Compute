@@ -21,6 +21,15 @@ And these inputs would need to be investigated as to how to implement them:
 * Axis
 * Gridder
 
+=== Metalinks
+
+=== NASA NCCS STRATUS
+Below are STRATUS primary requirements, as listed in its https://github.com/nasa-nccs-cds/stratus/blob/master/docs/STRATUS-WhitePaper-1.0.pdf[white paper]:
+
+* Modular Endpoints: Requires a common endpoint API that can be used to wrap any analytic operator and expose it as an instantiation of a singular analytic module interface.
+* Modular Layers: Requires a technology-agnostic architectural layer specification adhering to a common API, which can be instantiated using a wide range of applicable technologies.
+* A common language: Requires a common request-response language for describing workflows that can be assimilated and understood by all of the architectural layers and endpoints.
+
 === Applicability to machine learning
 
 It has been shown with the previous workflows that interoperability between WPS 1.0 and ESGF CWT interface can be achieved with the Weaver component. If climate processes could have been available as Docker application during the short project time frame, a workflow composed of all WPS 1.0, ESGF CWT and WPS-T 2.0 interface could have been tested also.

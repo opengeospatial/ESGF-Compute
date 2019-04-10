@@ -13,9 +13,9 @@
 
 (( Annex A provides a client-side Python sample through ESGF CWT API. ))
 
-(( Annex B provides a CWL file for the ice_days process of Finch WPS 1.0 provider. Finch is a component used to compute climate indices.))
+(( Annex B provides a CWL file for the _ice_days_ process of Finch WPS 1.0 provider. Finch is a component used to compute climate indices.))
 
-(( Annex C provides a CWL file for the subset process of NASA Earth Data Analytic Services provider, exposed through ESGF CWT API. ))
+(( Annex C provides a CWL file for the subset process of NASA EDAS provider, exposed through ESGF CWT API. ))
 
 (( Annex D provides a JSON file, containing all required inputs and outputs for a ESGF CWT API process.))
 
@@ -23,6 +23,6 @@
 
 (( Annex F provides a JSON file the request body of a WPS 1.0 workflow.))
 
-(( Annex G provides a CWL file for the WPS 1.0 to CWT workflow using LLNL WPS provider.))
+(( Annex G provides a CWL file for the WPS 1.0 to CWT workflow using LLNL AIMS WPS provider.))
 
-(( Annex H provides a CWL file for the WPS 1.0 to CWT workflow using NASA WPS provider.))
+(( Annex H provides a CWL file for the WPS 1.0 to CWT workflow using NASA EDAS WPS provider.))
