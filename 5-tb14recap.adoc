@@ -6,7 +6,7 @@ Section 5 presents key elements of Testbed-14 relevant to this work, such as com
 * OGC Testbed-14: ADES & EMS Results and Best Practices Engineering Report cite:[TB14ADESEMS2018]
 * OGC Testbed-14: Application Package Engineering Report cite:[TB14AP2018]
 
-Additionally, the reports below offer additional insights supporting challenges of the Earth System Grid Federation. These topics are very briefly covered in the << Discussion, discussion >> section.
+Additionally, the reports below offer additional insights supporting challenges of the Earth System Grid Federation. These topics are very briefly covered in the <<Discussion, discussion>> section and are introduced as recommended future work in the summary of this report.
 
 * OGC Testbed-14: Federated Clouds Engineering Report cite:[TB14FC2018]
 * OGC Testbed-14: Machine Learning Engineering Report cite:[TB14ML2018]

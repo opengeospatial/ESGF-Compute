@@ -36,7 +36,7 @@ On that last element, the Compute Working Team (CWT) currently conducts iterativ
 
 === Implementations
 
-The ESGF Compute Challenge participants completed various experiments and integrations. The EMS implementation described in this report is based on components from both Birdhouse and PAVICS. The <<solution, Solution>> described in this report focus on providing access to deployed ESGF CWT API processes and providers in application packages and workflows. Future work includes exposing application packages through ESGF CWT API, either manually or dynamically. Below is a list of the various systems and frameworks involved in the Compute Challenge.
+The ESGF Compute Challenge participants completed various experiments and integrations. The EMS implementation described in this report is based on components from both Birdhouse and PAVICS. The <<Solution, Solution>> described in this report focus on providing access to deployed ESGF CWT API processes and providers in application packages and workflows. Future work includes exposing application packages through ESGF CWT API, either manually or dynamically. Below is a list of the various systems and frameworks involved in the Compute Challenge.
 
 * https://computation.llnl.gov/projects/aims-analytics-and-informatics-management-systems[AIMS] - Analytics and Informatics Management Systems, LLNL.
 * http://bird-house.github.io/[Birdhouse] Framework, DKRZ/CEDA/IPSL. See cite:[EGU2018EHBERECT].
@@ -46,7 +46,7 @@ The ESGF Compute Challenge participants completed various experiments and integr
 * https://github.com/OphidiaBigData/ophidia-analytics-framework[Ophidia] Analytics Framework, CMCC. See cite:[FIORE2016].
 * https://ouranosinc.github.io/pavics-sdi/[PAVICS] - Platform for the Analysis and Visualization of Climate Science, Ouranos/CRIM. See cite:[AGU2017FMIN21D0060G].
 
-EDAS can be used as an analytics engine for the ESGF through STRATUS, an integrative framework developed at NASA NCCS. STRATUS presents a unified API and workflow orchestration for varied climate data analytic services. See << Discussion, Discussion >> section for more information on STRATUS.
+EDAS can be used as an analytics engine for the ESGF through STRATUS, an integrative framework developed at NASA NCCS. STRATUS presents a unified API and workflow orchestration for varied climate data analytic services. See <<Discussion, Discussion>> section for more information on STRATUS.
 
 As of early April, only AIMS and EDAS offered endpoint implementing the ESGF Compute Working Team API. Interoperability experiments conducted on these providers for this work are documented in <<Solution, Section 7>> and <<TIEs, Section 8>>, while the API is briefly described below.
 
