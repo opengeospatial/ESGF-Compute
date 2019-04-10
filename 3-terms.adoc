@@ -54,6 +54,10 @@ A deep neural network (DNN) is an artificial neural network (ANN) with multiple 
 
 A method that can provide climate model outputs at a finer resolution than their original resolution. Two different approaches are prioritized: statistical downscaling and dynamical downscaling.
 
+* EDAS (Earth Data Analytics Service)
+
+Developed by NASA NCCS, EDAS is a high-performance big data analytics framework built on Dask/xarray, to allow researchers to leverage our compute power to analyze large datasets located at the NCCS through a web-based interface, thereby eliminating the need to download the data. https://www.nccs.nasa.gov/services/analytics/EDAS[EDAS]
+
 * HDF (Hierarchical Data Format)
 
 // ESGF Face to Face report 2017
@@ -126,7 +130,6 @@ Xarray is an open source project and Python package focused on multi-dimensional
 * DKRZ Deutsches Klimarechenzentrum
 * DOE U.S. Department of Energy
 * ECCC Environment and Climate Change Canada
-* EDAS Earth Data Analytic Services
 * EMS	Execution Management Service
 * EO Earth Observation
 * EOC	Earth Observation Clouds
@@ -134,7 +137,6 @@ Xarray is an open source project and Python package focused on multi-dimensional
 * ER Engineering Report
 * ESA	European Space Agency
 * ESGF Earth System Grid Federation
-* F2F Face to Face
 * HPC High-Performance Computing
 * IdP Identity Provider
 * IPCC Intergovernmental Panel on Climate Change

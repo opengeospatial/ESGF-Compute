@@ -1,7 +1,7 @@
 [[TIEs]]
 == Applications and workflows
 
-Section 8 documents interoperability experiments conducted between CRIM's EMS, LLNL AIMS and NASA EDAS endpoints in context of ESGF compute challenge. The section presents execution body samples and workflows. 
+Section 8 documents interoperability experiments conducted between CRIM's EMS, LLNL AIMS and NASA EDAS endpoints in context of ESGF compute challenge. The section presents execution body samples and workflows.
 
 === ESGF CWT Applications
 
@@ -129,7 +129,7 @@ The CWL is also built the same way as in Testbed-14. It contains the class indic
 }
 ----
 
-In <<JSON_WPS1_workflow_body, Annex F>>, the "tasmax" input provides a reference to a required maximum temperature NetCDF file which is shown at left in the image below. The "lat"/"lon" inputs are required as well by the subsetter process and finally the "freq" input is mapped to the ice days process. The subsetter performs its task using the provided bounding box, the JSON output is decapsulated by the json2nc step and the NetCDF file is then fed to the last process which calculate the ice days over the provided region. The result is shown at right in the image below.
+In <<JSON_WPS1_workflow_body, Annex F>>, the "tasmax" input provides a reference to a required maximum temperature NetCDF file which is shown at left in the image below. The "lat"/"lon" inputs are required as well by the subsetter process and finally the "freq" input is mapped to the ice days process. The subsetter performs its task using the provided bounding box, the JSON output is decapsulated by the json2nc step and the NetCDF file is then fed to the last process which calculate the ice days over the provided region. The result of this workflow on Canada statistically downscaled climate scenarios is shown on the right in the image below.
 
 .Image showing workflow input / output example.
 image::images/workflow_sample.png[width=950,align="center"]
@@ -139,3 +139,8 @@ image::images/workflow_sample.png[width=950,align="center"]
 The second workflow, has been tried both ways, first subsetting by CWT then by WPS 1.0 and using the opposite order, WPS 1.0 first then feeding the CWT interface. As for the first workflow, the deploy body is unchanged from previous Testbed (except for the CWL file name) and omit here. The first CWL, detailed in <<CWL_WPS1_to_CWT_LLNL_workflow, Annex G>>, shows that the WPS 1.0, "crim_subset", is linked to the second step, "llnl_subset", a CWT process executed on the AIMS2 server at LLNL.
 
 The second CWL file, detailed in <<CWL_WPS1_to_CWT_NASA_workflow, Annex H>>, shows the opposite, this time using the CWT interface of the NASA server, "nasa_subset", to feed the WPS 1.0 process, "crim_subset". In this workflow, an utility application is also used to convert the file type obtains from the "nasa_subset" step to a string type required by the "crim_subset" further supporting the usefulness of these utility applications.
+
+The result of subsetting on CMIP6 data is shown on the right in the image below.
+
+.Image showing subsetting of CMIP6 data as processed by CRIM subsetter.
+image::images/CMIP6_subset.png[width=950,align="center"]
