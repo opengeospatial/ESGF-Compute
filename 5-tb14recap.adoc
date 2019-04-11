@@ -6,7 +6,7 @@ Section 5 presents key elements of Testbed-14 relevant to this work, such as com
 * OGC Testbed-14: ADES & EMS Results and Best Practices Engineering Report cite:[TB14ADESEMS2018]
 * OGC Testbed-14: Application Package Engineering Report cite:[TB14AP2018]
 
-Additionally, the reports below offer additional insights supporting challenges of the Earth System Grid Federation. These topics are very briefly covered in the <<Discussion, discussion>> section and are introduced as recommended future work in the summary of this report.
+Additionally, the reports below offer additional insights supporting challenges of the Earth System Grid Federation and helping scope specifications for next generation architecture. These topics are very briefly covered in the <<Discussion, discussion>> section and are introduced as recommended future work in the summary of this report.
 
 * OGC Testbed-14: Federated Clouds Engineering Report cite:[TB14FC2018]
 * OGC Testbed-14: Machine Learning Engineering Report cite:[TB14ML2018]
@@ -26,15 +26,15 @@ This subsection presents the WPS interface used in the execution components, as 
 
 In Testbed 14, a RESTful protocol for the WPS interface based was designed. The interface serves both the ADES and the EMS components as they share the same functionality set. The complete specification defined using OpenAPI can be found in https://github.com/opengeospatial/D009-ADES_and_EMS_Results_and_Best_Practices_Engineering_Report/blob/master/code/ades_wpst.json[on Github]. This interface proposes how to deploy, list, execute and monitor processes, as well as getting back the process result. While the specification covers other aspects, these are the main operations on which this report focus.
 
-==== Application Package
+===== Application Package
 
-The Application Package ER cite:[TB14AP2018] defined how the applications should be packaged. It introduced a novel way to capture how the parameters could be passed to the application and the results retrieved.  A WPS-T DeployProcess document defines the application’s inputs and outputs, as well as the execution unit. The novel way to define that execution unit is to add a Common Workflow Language (CWL cite:[CWL2016]) file that is exactly conceived to describe how to execute Docker application and how parameters and results can be provided and retrieved. Each WPS inputs can precisely map to the Docker command line arguments. The output can be easily retrieved by mounting a volume inside the Docker container where the output is expected to be created. The DeployProcess document still support defining directly the Docker image as an execution unit, but in that case ows:metadata must be provided to emulate what is contained in the CWL. The current report describes the modification to the CWL execution unit and shows how it can be used to easily make the EMS more versatile.
+The Application Package ER cite:[TB14AP2018] defined how the applications should be packaged. It introduced a novel way to capture how the parameters could be passed to the application and the results retrieved.  A WPS-T DeployProcess document defines the application’s inputs and outputs, as well as the execution unit. The novel way to define that execution unit is to add a Common Workflow Language (CWL cite:[CWL2016]) file that is exactly conceived to describe how to execute Docker application and how parameters and results can be provided and retrieved. Each WPS inputs can precisely map to the Docker command line arguments. The output can be easily retrieved by mounting a volume inside the Docker container where the output is expected to be created. The _DeployProcess_ document still support defining directly the Docker image as an execution unit, but in that case _ows:metadata_ must be provided to emulate what is contained in the CWL. The current report describes the modification to the CWL execution unit and shows how it can be used to easily make the EMS more versatile.
 
-==== Application Chaining
+===== Application Chaining
 
 Application chaining is an important part of the Tesbed-14. Proposed interoperability experiments involve simple chaining, where in a workflow composed of application A and B, output of A being fed into B. Both applications are packaged as Docker images and their execution is forwarded to an ADES. That forwarding is dynamic. Based on the data source, the system determines where execute the application should occur, so that the data does not have to be moved around. That implies that at runtime an ADES is targeted based on the data source, hence the application is deployed to that ADES. It is then executed before deployment of the second application, parametrized with the output of the first one.
 
-=== Implementation
+==== Implementation
 
 For this this work, the implementation of CRIM is considered. It is already partly committed into ESGF code base and is being extended to support interoperability with ESGF deployed services, as described in <<ESGFCompute, Section 6>>. The EMS implementation is based on components of the Open Source software framework Birdhouse cite:[EHBRECHT2018]. The https://github.com/Ouranosinc/twitcher[Twitcher] component acts as a Policy Enforcement Point (PEP). It has been extended to offer an WPS 2.0 JSON proxy to WPS 1.0 endpoints, and to comply to the EMS API which involves adding the dynamic deployment of processes and CWL workflow capabilities. The https://github.com/Ouranosinc/Magpie[Magpie] component is used as an adapter to manage ACLs of deployed processes and process permissions (WPS requests) for a given user’s credentials. The following component diagram shows the relation between Twitcher and Magpie.
 

@@ -4,7 +4,7 @@
 //(( The summary shall contain the key findings in a concise form. A more detailed description of the findings should be in the body of the report. ))
 //(( This section shall be between 2-3 paragraphs and not longer than 507 words.))
 
-This OGC Engineering Report (ER) will describe the advancement of an Execution Management System (EMS) to support pre-deployed WPS processes, including those of the Earth System Grid Federation (ESGF). The report introduces climate data, processes and applications into CWL workflows with the intent of advancing: application packaging, deployment and execution in clouds; interoperability of services in federated cyberinfrastructures; geospatial workflows towards standardization. Work presented in this report is a direct continuation of the Earth Observation & Clouds (EOC) thread of Testbed-14. This report is expected to be of relevance for Testbed-15, both to the Earth Observation Process and Application Discovery (EOPAD) task and the Machine Learning task. This engineering report will describe: relevant work conducted in OGC Testbed-14; ESGF and its compute challenge; adaptations of existing climate processes into workflows; interoperability experiments with ESGF endpoints conforming to a common API.
+This OGC Engineering Report (ER) will describe the advancement of an Execution Management System (EMS) to support Web Processing Services (WPS) climate processes deployed on the Earth System Grid Federation (ESGF). The report introduces climate data, processes and applications into CWL workflows with the intent of advancing: application packaging, deployment and execution in clouds; interoperability of services in federated cyberinfrastructures; geospatial workflows towards standardization. Work presented in this report is a direct continuation of the Earth Observation & Clouds (EOC) thread of Testbed-14. This report is expected to be of relevance for Testbed-15, both to the Earth Observation Process and Application Discovery (EOPAD) task and the Machine Learning task. This engineering report will describe: relevant work conducted in OGC Testbed-14; ESGF and its compute challenge; adaptations of existing climate processes into workflows; interoperability experiments with ESGF endpoints conforming to a common API.
 
 === Requirements & Research Motivation
 
@@ -26,7 +26,7 @@ Previous work in OGC testbeds allowed definition of application packages in work
 
 The work described in this ER improves interoperability of workflows with pre-deployed WPS 1.0 and WPS 2.0 processes. It also enables the inclusion of pre-deployed processes adhering to the ESGF Compute Working Team (CWT) API. The workflows proposed in this work includes climate data (CMIP6, statistically downscaled climate scenarios, variables and indexes), climate processes (index computation) and base processes (subsetting, averaging). Three different infrastructures were used for <<TIEs, interoperability experiments>>.
 
-The last two objectives of the ESGF concept, the use of EO in support of climate infrastructures and the integration of ML systems, were only partially and informally addressed in this work. It is expected that work planned and conducted in OGC Testbed-15, as well as in other collaborative innovation projects, will continue to support these efforts and drive future requirements.
+The last two objectives of the ESGF concept, the use of EO in support of climate infrastructures and the integration of ML systems, were only partially and informally addressed in this work. It is expected that work planned and conducted in OGC Testbed-15, as well as in other collaborative innovation projects, will continue to support these efforts and drive future requirements. This report contains relevant content potentially supporting https://portal.opengeospatial.org/files/83548[OGC request for information (RFI)] on Earth Observation Big Data Architecture.
 
 === Recommendations for Future Work
 //(( This section should answer the question: What does this ER mean for the Working Group and OGC in general? What aspects shall be addressed next? In any specific order? What actions are necessary? ))
@@ -48,9 +48,11 @@ The following components are suggested to be deployed for testing, demonstration
 . Clients that can support both EO and climate data
 . ESGF Application Profile
 . Open Search enabled catalog for climate data
+. Ontology to use in CWL file formats supported in workflows
 . ML models for detection and localization of extreme climate events
 . ML systems supporting interfaces for interoperable DL models, where trained models from a ML system can be loaded into a different one to be used for inference
 . ML-enabled application packages and workflows, where a packaged ML system is used in conjunction with pre-processing steps
+. Additional application packages, with different variations of input/output mappings of Docker containers and underlying executable code
 . Advanced clients to provide user feedback on all previously mentioned future components
 
 ===== Recommended Future Engineering Reports (ER)

@@ -6,21 +6,40 @@ Section 9 opens up the discussion by further elaborating on findings or on raisi
 There is a need to (re)-establish a common vocabulary for the software artefacts involved. For instance, the terms _Application_, _Application Package_, _Process_, _Service_ and _Endpoint_ lend themselves to be used interchangeably. The potential confusion is even more important in context of _Workflows_ that can chain applications and execute deployed processes.
 
 === Transition from WPS 1.0 to WPS 2.0
-Current adoption of WPS 2.0 standard is still very limited. For instance, 52 North implementations such as https://github.com/52North/javaPS/releases/tag/v1.2.0[javaPS] are based on OGC Web Processing Service standard version 2.0, https://pywps.readthedocs.io/en/master/[PyWPS] server is currently only _planning_ support for this version. In the near future, one can still expect to see new WPS 1.0 endpoints appear. By enabling support of pre-deployed WPS 1.0 services into a WPS 2.0 workflow environment, and onwards to WPS 3.0, the <<Solution, Solution>> presented in this report has the potential to facilitate a transition phase for legacy deployments. This relative ease to provide WPS 2.0 RESTful interfaces comes at the expense of the increased software complexity involved with an EMS/ADES implementation such as Weaver.
+Current adoption of WPS 2.0 standard is still very limited. For instance, 52 North implementations such as https://github.com/52North/javaPS/releases/tag/v1.2.0[javaPS] are based on OGC Web Processing Service standard version 2.0, https://pywps.readthedocs.io/en/master/[PyWPS] server is currently only planning support for this version. In the near future, one can still expect to see new WPS 1.0 endpoints appear. By enabling support of pre-deployed WPS 1.0 services into a WPS 2.0 workflow environment, and onwards to WPS 3.0, the <<Solution, Solution>> presented in this report has the potential to facilitate a transition phase for legacy deployments. This relative ease to provide WPS 2.0 RESTful interfaces comes at the expense of the increased software complexity involved with an EMS/ADES implementation such as Weaver.
+
+It has been shown with the previous workflows that interoperability between WPS 1.0 and ESGF CWT interface can be achieved with the Weaver component. If climate processes could have been available as Docker application during the short project time frame, a workflow composed of all WPS 1.0, ESGF CWT and WPS-T 2.0 interface could have been tested also.
 
 === From Docker image to application
-Entry points to application unclear.
-Mapping between Docker and app/exec.
+In the process of adapting the EMS to climate applications, it became clear that having a Docker image of an application is not a sufficient condition to consider it an _Application Package_. Careful consideration has to be taken to define clear entry points to the executable code. Docker images are often packaged with ease of installation and deployment in mind, but not runtime considerations such as execution. Further work could include additional investigations for the mapping of the Docker inputs and outputs onto various entry points of execution. Interoperability with some containers will be easier once they are in their deployed state.
 
 === CWL file formats
-Can explicitly define formats, needs to select some ontologies.
-edam stuff, could develop new ones for geo.
+In CWL, tools and workflows can take _File_ types as input and produce them as output. Providing this specifications helps document for others how to use the tool while allowing simple type-checking when creating parameter files. It is possible to reference existing ontologies, like EDAM, or reference a local ontology. Additional investigation for creation of such an ontology for EO and climate is required, and recommended as future work in the <<Summary, summary>>.
 
 === Metalinks
-Application actuelles retournent un output.
+One recommendation from OGC Testbed-14: ADES & EMS Results and Best Practices Engineering Report cite:[TB14ADESEMS2018] is to use Metalinks for multiple outputs. During the ESGF Compute Challenge, Ouranos and DKRZ produced an implementation that adds _MetaFile_ and _MetaLink_ classes, code that has been https://github.com/geopython/pywps/pull/466[merged in PyWPS]. The intent is to improve the user experience with respect to WPS outputs storing multiple files under the same identifier. For example, when computing an indicator on an ensemble of climate simulations, the output is going to be a list of files. At the moment, a usual way to send that back to the user is to either zip these files and provide the reference to the zip file, or to create a txt file storing the list of references.
 
-=== ESGF API Limitations
-A downside of the ESGF WPS versus standard WPS is that the inputs must be explicitly described in the deployment of a process. For standard WPS, the deployment of a process requires only its url. A specific set of inputs, or profile, could be defined as a shared interface between deployed ESGF processes. Deployment of a processes would be  more succinct. The 'DescribeProcess' command would still show all inputs available. Here are potential inputs to include in the interface:
+In this implementation, a process developer declares an output as a _FORMATS.METALINK_, instantiate a _MetaLink_ object and fill it with all the output files and their metadata (name, description). The server returns an XML file matching the metalink schema. Metalink files are recognized and individual files downloaded and converted into objects. The _MetaLink_ format opens up interesting possibilities, including distributing files as torrents, and including a checksum. Additionally, impacts of _Metalink_ support in workflow environments is to be investigated.
+
+=== NASA NCCS STRATUS
+NASA Stratus Framework provides a set of standards and APIs to facilitate the integration of disparate analytic services into unified workflows with a common interface. The Stratus framework has been partially implemented at NCCS and a limited deployment is in the initial stages of testing and security review. As the framework addresses several of challenges of EO platforms, it is presented to the reader of this report as a solution potentially complementing ESA Thematic Exploitation Platform (TEP) open architecture. Below are STRATUS primary requirements, as listed in its https://github.com/nasa-nccs-cds/stratus/blob/master/docs/STRATUS-WhitePaper-1.0.pdf[white paper]:
+
+* Modular Endpoints: Requires a common endpoint API that can be used to wrap any analytic operator and expose it as an instantiation of a singular analytic module interface.
+* Modular Layers: Requires a technology-agnostic architectural layer specification adhering to a common API, which can be instantiated using a wide range of applicable technologies.
+* A common language: Requires a common request-response language for describing workflows that can be assimilated and understood by all of the architectural layers and endpoints.
+
+=== Applicability to machine learning
+
+In Testbed-15 Machine Learning tasks, there is a specification to “continue the work of cloud computing from Testbed 13, 14 with work on WPS and possibly CWL (Common Workflow Language), and continue the LiDAR best practices work from Testbed 14”. This applies for these deliverables:
+
+* D100	Petawawa cloud mosaicing ML model
+* D101	Petawawa land cover classification ML model
+* D102	New Brunswick forest ML model
+
+It is to be noted that work documented in OGC Testbed-14: Machine Learning Engineering Report cite:[TB14ML2018] presents a Dockerized, self-contained application package of PyTorch, including helper libraries. The work presented in the current report is therefore seen as potentially complementary to the ML common architecture to be defined in the ML thread.
+
+=== ESGF CWT API 
+A downside of the ESGF WPS versus standard WPS is that the inputs must be explicitly described in the deployment of a process. For standard WPS, the deployment of a process requires only its url. A specific set of inputs, or profile, could be defined as a shared interface between deployed ESGF processes. Deployment of a processes would be more succinct. The _DescribeProcess_ command would still show all inputs available. Here are potential inputs to include in the interface:
 
 * Common domain variables:
 ** Latitude (min and max)
@@ -34,19 +53,6 @@ Additional investigation of these inputs is required:
 * Mask
 * Axis
 * Gridder
-
-=== NASA NCCS STRATUS
-Below are STRATUS primary requirements, as listed in its https://github.com/nasa-nccs-cds/stratus/blob/master/docs/STRATUS-WhitePaper-1.0.pdf[white paper]:
-
-* Modular Endpoints: Requires a common endpoint API that can be used to wrap any analytic operator and expose it as an instantiation of a singular analytic module interface.
-* Modular Layers: Requires a technology-agnostic architectural layer specification adhering to a common API, which can be instantiated using a wide range of applicable technologies.
-* A common language: Requires a common request-response language for describing workflows that can be assimilated and understood by all of the architectural layers and endpoints.
-
-=== Applicability to machine learning
-
-It has been shown with the previous workflows that interoperability between WPS 1.0 and ESGF CWT interface can be achieved with the Weaver component. If climate processes could have been available as Docker application during the short project time frame, a workflow composed of all WPS 1.0, ESGF CWT and WPS-T 2.0 interface could have been tested also.
-
-Since there is active works done using machine learning at CRIM and they are increasingly packaged as Docker applications, the next logical step is to start to integrate them into workflows and leverage the capabilities of the Weaver EMS component to execute them. Moreover, the usage of CWL workflows that can mix and match between all these interfaces is more than welcome by allowing reutilization of existing processes and making workflows more powerful.
 
 === ESGF supporting material
 
