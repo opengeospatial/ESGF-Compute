@@ -2,27 +2,25 @@
 == Discussion
 Section 9 opens up the discussion by further elaborating on findings or on raising open issues from the work.
 
+=== Application and process terminology
+There is a need to establish a common vocabulary.
+
 === Transition from WPS 1.0 to WPS 3.0
-Current adoption of WPS 2.0 standard is still very limited. While 52 North implementations such as https://github.com/52North/javaPS/releases/tag/v1.2.0[javaPS] are based on OGC Web Processing Service standard version 2.0, https://pywps.readthedocs.io/en/master/[PyWPS] server is currently only _planning_ support for this version. In the near future, one can expect to see additional WPS 1.0 endpoints and services appear. By enabling support of pre-deployed WPS 1.0 services into a WPS 2.0 workflow environment, the <<Solution, Solution>> presented in this report has the potential to facilitate the   
+Current adoption of WPS 2.0 standard is still very limited. While 52 North implementations such as https://github.com/52North/javaPS/releases/tag/v1.2.0[javaPS] are based on OGC Web Processing Service standard version 2.0, https://pywps.readthedocs.io/en/master/[PyWPS] server is currently only _planning_ support for this version. In the near future, one can expect to see additional WPS 1.0 endpoints and services appear. By enabling support of pre-deployed WPS 1.0 services into a WPS 2.0 workflow environment, the <<Solution, Solution>> presented in this report has the potential to facilitate a transition phase. Maturation of best practices is required.
 
-Maturation of best practices
-
-=== Docker containers and applications
-Entry points to application unclear
-Mapping between Docker and app/exec
-
-=== Application, process terminology
+=== From Docker image to application
+Entry points to application unclear.
+Mapping between Docker and app/exec.
 
 === CWL file formats
-Can explicitly define formats, needs to select some ontologies
-edam stuff, could develop new ones for geo
+Can explicitly define formats, needs to select some ontologies.
+edam stuff, could develop new ones for geo.
+
+=== Metalinks
+Application actuelles retournent un output.
 
 === ESGF API Limitations
-One big downside of the ESGF WPS versus standard WPS is that the inputs must be explicitly described in the deployment of a process (for standard WPS, the deployment of a process requires only its url).
-
-We could identify a specific set of inputs that we want to support and include them in a shared interface between deployed ESGF processes. That way, the deployment of a process would be much more succinct. The 'DescribeProcess' command would still show all the inputs available
-
-Here are the inputs that would be easy to include in the interface:
+A downside of the ESGF WPS versus standard WPS is that the inputs must be explicitly described in the deployment of a process. For standard WPS, the deployment of a process requires only its url. A specific set of inputs, or profile, could be defined as a shared interface between deployed ESGF processes. Deployment of a processes would be  more succinct. The 'DescribeProcess' command would still show all inputs available. Here are potential inputs to include in the interface:
 
 * Common domain variables:
 ** Latitude (min and max)
@@ -30,15 +28,12 @@ Here are the inputs that would be easy to include in the interface:
 ** Time (min and max)
 * Variables (datasets urls and variable name)
 
-And these inputs would need to be investigated as to how to implement them:
+Additional investigation of these inputs is required:
 
-* Custom domain variables (their name is provided by the user at execution time, not at deploy time)
+* Custom domain variables, i.e. where the name is provided by the user at execution time, not at deploy time
 * Mask
 * Axis
 * Gridder
-
-=== Metalinks
-Application actuelles retournent un output
 
 === NASA NCCS STRATUS
 Below are STRATUS primary requirements, as listed in its https://github.com/nasa-nccs-cds/stratus/blob/master/docs/STRATUS-WhitePaper-1.0.pdf[white paper]:
@@ -52,3 +47,13 @@ Below are STRATUS primary requirements, as listed in its https://github.com/nasa
 It has been shown with the previous workflows that interoperability between WPS 1.0 and ESGF CWT interface can be achieved with the Weaver component. If climate processes could have been available as Docker application during the short project time frame, a workflow composed of all WPS 1.0, ESGF CWT and WPS-T 2.0 interface could have been tested also.
 
 Since there is active works done using machine learning at CRIM and they are increasingly packaged as Docker applications, the next logical step is to start to integrate them into workflows and leverage the capabilities of the Weaver EMS component to execute them. Moreover, the usage of CWL workflows that can mix and match between all these interfaces is more than welcome by allowing reutilization of existing processes and making workflows more powerful.
+
+=== ESGF supporting material
+
+The following publications offer a thorough view on various challenges and requirements of ESGF:
+
+* Strategie Roadmap for the Earth System Grid Federation cite:[Williams2015]
+* Big Data Challenges in Climate Science: Improving the next-generation cyberinfrastructure cite:[SCHNASE2016]
+* Enabling Reanalysis Research Using the Collaborative Reanalysis Technical Environment (CREATE) cite:[POTTER2018]
+* Requirements for a global data infrastructure in support of CMIP6 cite:[BALAJI2018]
+* Addressing the massive CMIP6 data science challenge through the ESGF global federation cite:[AGU2018FMIN21A]

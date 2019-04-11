@@ -5,7 +5,13 @@ Section 6 presents the Earth System Grid Federation (ESGF) collaborative effort 
 
 === Background information
 
-Led by the U.S. Department of Energy’s (DOE) Office of Biological and Environmental Research (BER), ESGF is an international multi-agency federation that develops, deploys, and maintains software to facilitate advancements in geophysical science. ESGF’s open-source, operational code base disseminates model simulation, observational, and reanalysis data for research assessments and model validation via secure storage and dissemination of petabytes of data. The ESGF mission is to:
+Led by the U.S. Department of Energy’s (DOE) Office of Biological and Environmental Research (BER), ESGF is an international multi-agency federation that develops, deploys, and maintains software to facilitate advancements in geophysical science. ESGF’s open-source, operational code base disseminates model simulation, observational, and reanalysis data for research assessments and model validation via secure storage and dissemination of petabytes of data.
+
+Addressing “big data” challenges in Earth system research, ESGF is a collaboration of numerous computer scientists, data scientists, and climate researchers. The federation houses an enormous database of global observational and simulation data — more than 5 petabytes — and manages the high-performance computing (HPC) hardware and software infrastructure necessary for scientific climate research. In the nearly two decades since its launch, ESGF has grown to serve 25,000 users on 6 continents cite:[auten20187th]. More details can be found in https://esgf.llnl.gov/esgf-media/pdf/2017-ESGF-Brochure.pdf[ESGF Brochure] or in <<Discussion, Discussion>> for other supporting material and citations.
+
+==== ESGF mission
+
+The ESGF mission is to:
 
 * Support current CMIP6 activities, and prepare for future assessments
 * Develop data and metadata facilities for inclusion of observations and reanalysis products for CMIP6 use
@@ -14,13 +20,7 @@ Led by the U.S. Department of Energy’s (DOE) Office of Biological and Environm
 * Integrate and interoperate with other software designed to meet the objectives of ESGF
 * Create software infrastructure and tools that facilitate scientific advancements
 
-Addressing “big data” challenges in Earth system research, ESGF is a collaboration of numerous computer scientists, data scientists, and climate researchers. The federation houses an enormous database of global observational and simulation data — more than 5 petabytes — and manages the high-performance computing (HPC) hardware and software infrastructure necessary for scientific climate research. In the nearly two decades since its launch, ESGF has grown to serve 25,000 users on 6 continents cite:[auten20187th]. More details can be found in https://esgf.llnl.gov/esgf-media/pdf/2017-ESGF-Brochure.pdf[ESGF Brochure]. The following publications offer a thorough view on various challenges and requirements of ESGF:
-
-* Strategie Roadmap for the Earth System Grid Federation cite:[Williams2015]
-* Big Data Challenges in Climate Science: Improving the next-generation cyberinfrastructure cite:[SCHNASE2016]
-* Enabling Reanalysis Research Using the Collaborative Reanalysis Technical Environment (CREATE) cite:[POTTER2018]
-* Requirements for a global data infrastructure in support of CMIP6 cite:[BALAJI2018]
-* Addressing the massive CMIP6 data science challenge through the ESGF global federation cite:[AGU2018FMIN21A]
+==== ESGF priorities
 
 As of early 2019, the priorities of ESGF are as follows:
 
@@ -34,7 +34,7 @@ As of early 2019, the priorities of ESGF are as follows:
 
 On that last element, the Compute Working Team (CWT) currently conducts iterative deployments and tests to stand up multiple production-ready, officially certified ESGF compute nodes. This effort includes data selection, security scans, API development, scalability tests, documentation updates, and regular status reports. The current Engineering Report is one of the contributions to this challenge.
 
-=== Implementations
+=== Compute Challenge implementations
 
 The ESGF Compute Challenge participants completed various experiments and integrations. The EMS implementation described in this report is based on components from both Birdhouse and PAVICS. The <<Solution, Solution>> described in this report focus on providing access to deployed ESGF CWT API processes and providers in application packages and workflows. Future work includes exposing application packages through ESGF CWT API, either manually or dynamically. Below is a list of the various systems and frameworks involved in the Compute Challenge.
 

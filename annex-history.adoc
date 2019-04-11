@@ -11,5 +11,6 @@
 |March 28, 2019 |D. Byrns | .3 |all |workflows and applications
 |March 31, 2019 |T. Landry | .4 |all |annexes and various edits
 |April 1, 2019 |D. Byrns | .5 |all |references/titles fixes
-|April 10, 2019 |T. Landry | .6 |all |Summary, discussion, editorial changes
+|April 09, 2019 |T. Landry | .6 |all |Summary, discussion, editorial changes
+|April 10, 2019 |T. Landry | .7 |all |Final draft
 |====================
