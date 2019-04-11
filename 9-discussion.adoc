@@ -3,10 +3,10 @@
 Section 9 opens up the discussion by further elaborating on findings or on raising open issues from the work.
 
 === Application and process terminology
-There is a need to establish a common vocabulary.
+There is a need to (re)-establish a common vocabulary for the software artefacts involved. For instance, the terms _Application_, _Application Package_, _Process_, _Service_ and _Endpoint_ lend themselves to be used interchangeably. The potential confusion is even more important in context of _Workflows_ that can chain applications and execute deployed processes.
 
-=== Transition from WPS 1.0 to WPS 3.0
-Current adoption of WPS 2.0 standard is still very limited. While 52 North implementations such as https://github.com/52North/javaPS/releases/tag/v1.2.0[javaPS] are based on OGC Web Processing Service standard version 2.0, https://pywps.readthedocs.io/en/master/[PyWPS] server is currently only _planning_ support for this version. In the near future, one can expect to see additional WPS 1.0 endpoints and services appear. By enabling support of pre-deployed WPS 1.0 services into a WPS 2.0 workflow environment, the <<Solution, Solution>> presented in this report has the potential to facilitate a transition phase. Maturation of best practices is required.
+=== Transition from WPS 1.0 to WPS 2.0
+Current adoption of WPS 2.0 standard is still very limited. For instance, 52 North implementations such as https://github.com/52North/javaPS/releases/tag/v1.2.0[javaPS] are based on OGC Web Processing Service standard version 2.0, https://pywps.readthedocs.io/en/master/[PyWPS] server is currently only _planning_ support for this version. In the near future, one can still expect to see new WPS 1.0 endpoints appear. By enabling support of pre-deployed WPS 1.0 services into a WPS 2.0 workflow environment, and onwards to WPS 3.0, the <<Solution, Solution>> presented in this report has the potential to facilitate a transition phase for legacy deployments. This relative ease to provide WPS 2.0 RESTful interfaces comes at the expense of the increased software complexity involved with an EMS/ADES implementation such as Weaver.
 
 === From Docker image to application
 Entry points to application unclear.

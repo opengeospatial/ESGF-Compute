@@ -4,7 +4,7 @@
 //(( The summary shall contain the key findings in a concise form. A more detailed description of the findings should be in the body of the report. ))
 //(( This section shall be between 2-3 paragraphs and not longer than 507 words.))
 
-This OGC Engineering Report (ER) will describe the advancement of an Execution Management System (EMS) to support pre-deployed WPS processes, including those of the Earth System Grid Federation (ESGF). The report introduces climate data, processes and applications into CWL workflows with the intent of advancing: application packaging, deployment and execution in clouds; interoperability of services in federated cyberinfrastructures; geospatial workflows towards standardization. Work presented in this report is a direct continuation of the Earth Observation & Clouds (EOC) thread of Testbed-14, and is expected to be of high relevance to the Earth Observation Process and Application Discovery (EOPAD) task of Testbed-15. This engineering report will describe: relevant work conducted in OGC Testbed-14; ESGF and its compute challenge; adaptations of existing climate processes into workflows; interoperability experiments with ESGF endpoints conforming to a common API.
+This OGC Engineering Report (ER) will describe the advancement of an Execution Management System (EMS) to support pre-deployed WPS processes, including those of the Earth System Grid Federation (ESGF). The report introduces climate data, processes and applications into CWL workflows with the intent of advancing: application packaging, deployment and execution in clouds; interoperability of services in federated cyberinfrastructures; geospatial workflows towards standardization. Work presented in this report is a direct continuation of the Earth Observation & Clouds (EOC) thread of Testbed-14. This report is expected to be of relevance for Testbed-15, both to the Earth Observation Process and Application Discovery (EOPAD) task and the Machine Learning task. This engineering report will describe: relevant work conducted in OGC Testbed-14; ESGF and its compute challenge; adaptations of existing climate processes into workflows; interoperability experiments with ESGF endpoints conforming to a common API.
 
 === Requirements & Research Motivation
 
@@ -12,13 +12,13 @@ The Thematic Exploitation Platform (TEP) open architecture was advanced in previ
 
 It was observed by certain testbed participants, observers and stakeholders that the same set of requirements applies to climate data, processes and infrastructure. As such, the U.S. Department of Energy’s (DOE) Office of Biological and Environmental Research (BER) sponsored additional engineering work to advance the Earth System Grid Federation (ESGF) interoperability. The general objectives proposed and presented to ESGF stakeholders are as follows, in order of importance:
 
-* Test common ESGF climate processes and their compute nodes
-* Demonstrate Testbed-14 TEP architecture for climate processes and applications
-* Advance application packaging, deployment and execution in clouds
-* Advance interoperability of services in ESGF federated cyberinfrastructure
-* Advance geospatial workflows towards standardization
-* Explore use of EO data and processes in support of climate infrastructure
-* Facilitate use and exchange of ML systems and learned models
+. Test common ESGF climate processes and their compute nodes
+. Demonstrate Testbed-14 TEP architecture for climate processes and applications
+. Advance application packaging, deployment and execution in clouds
+. Advance interoperability of services in ESGF federated cyberinfrastructure
+. Advance geospatial workflows towards standardization
+. Explore use of EO data and processes in support of climate infrastructure
+. Facilitate use and exchange of ML systems and learned models
 
 === Prior-After Comparison
 
@@ -36,8 +36,8 @@ This section presents recommended potential future tasks and deliverables that c
 
 ==== Recommended Future Tasks
 
-. Common architecture for climate and EO infrastructures
-. Machine Learning systems and models interoperability
+. Common architecture for climate and Earth Observation (EO) platforms
+. Machine Learning systems and models interoperability in federated cyberinfrastructures
 
 ==== Recommended Future Deliverables
 
@@ -45,9 +45,9 @@ This section presents recommended potential future tasks and deliverables that c
 
 The following components are suggested to be deployed for testing, demonstration and integration purposes. The resulting functionalities of these components could support both recommended future tasks.
 
+. Clients that can support both EO and climate data
 . ESGF Application Profile
 . Open Search enabled catalog for climate data
-. Clients that can support both EO and climate data
 . ML models for detection and localization of extreme climate events
 . ML systems supporting interfaces for interoperable DL models, where trained models from a ML system can be loaded into a different one to be used for inference
 . ML-enabled application packages and workflows, where a packaged ML system is used in conjunction with pre-processing steps
