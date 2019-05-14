@@ -8,9 +8,9 @@ This OGC Engineering Report (ER) will describe the advancement of an Execution M
 
 === Requirements & Research Motivation
 
-The Thematic Exploitation Platform (TEP) open architecture was advanced in previous testbeds tackled Earth observation data in the context of federated, heterogeneous infrastructures. The main requirements included support for application deployment, execution and chaining, as well as the agreed authentication and authorization mechanisms. All interfaces needed to be agreed upon and standardized so as to achieve the Sponsors (European Space Agency, Natural Resources Canada) interoperability goals.
+The Thematic Exploitation Platform (TEP) open architecture advanced in previous testbeds tackled Earth observation data in the context of federated, heterogeneous infrastructures. The main requirements included support for application deployment, execution and chaining, as well as the agreed authentication and authorization mechanisms. All interfaces needed to be agreed upon and standardized so as to achieve the Sponsors' (European Space Agency, Natural Resources Canada) interoperability goals.
 
-It was observed by certain testbed participants, observers and stakeholders that the same set of requirements applies to climate data, processes and infrastructure. As such, the U.S. Department of Energy’s (DOE) Office of Biological and Environmental Research (BER) sponsored additional engineering work to advance the Earth System Grid Federation (ESGF) interoperability. The general objectives proposed and presented to ESGF stakeholders are as follows, in order of importance:
+It was observed by certain testbed participants, observers and stakeholders that the same set of requirements applies to climate data, processes and infrastructure. As such, the U.S. Department of Energy’s (DOE) Office of Biological and Environmental Research (BER) sponsored additional engineering work to ESGF interoperability. The general objectives proposed and presented to ESGF stakeholders are as follows, in order of importance:
 
 . Test common ESGF climate processes and their compute nodes
 . Demonstrate Testbed-14 TEP architecture for climate processes and applications
@@ -18,13 +18,13 @@ It was observed by certain testbed participants, observers and stakeholders that
 . Advance interoperability of services in ESGF federated cyberinfrastructure
 . Advance geospatial workflows towards standardization
 . Explore use of EO data and processes in support of climate infrastructure
-. Facilitate use and exchange of ML systems and learned models
+. Facilitate use and exchange of Machine Learning (ML) systems and learned models
 
 === Prior-After Comparison
 
 Previous work in OGC testbeds allowed definition of application packages in workflow-enabled environments, and their subsequent deployment and execution on distributed secured infrastructures. Data discoverability was superficially addressed through inclusion of Open Search capabilities to identify and select the appropriate data from catalogs. Applications developed for the occasion included stacking, subsetting, feature detection and index computation, both on optical and SAR data. All these concerns are of particular interest for OGC's Earth Observation Exploitation Platform (EO Ex Platform) Domain Working Group (DWG).
 
-The work described in this ER improves interoperability of workflows with pre-deployed WPS 1.0 and WPS 2.0 processes. It also enables the inclusion of pre-deployed processes adhering to the ESGF Compute Working Team (CWT) API. The workflows proposed in this work includes climate data (CMIP6, statistically downscaled climate scenarios, variables and indexes), climate processes (index computation) and base processes (subsetting, averaging). Three different infrastructures were used for <<TIEs, interoperability experiments>>.
+The work described in this ER improves interoperability of workflows with pre-deployed WPS 1.0 and WPS 2.0 processes. It also enables the inclusion of pre-deployed processes adhering to the ESGF Compute Working Team (CWT) API. The workflows proposed in this work include climate data (CMIP6, statistically downscaled climate scenarios, variables and indexes), climate processes (index computation) and base processes (subsetting, averaging). Three different infrastructures were used for <<TIEs, interoperability experiments>>.
 
 The last two objectives of the ESGF concept, the use of EO in support of climate infrastructures and the integration of ML systems, were only partially and informally addressed in this work. It is expected that work planned and conducted in OGC Testbed-15, as well as in other collaborative innovation projects, will continue to support these efforts and drive future requirements. This report contains relevant content potentially supporting https://portal.opengeospatial.org/files/83548[OGC request for information (RFI)] on Earth Observation Big Data Architecture.
 
@@ -37,7 +37,7 @@ This section presents recommended potential future tasks and deliverables that c
 ==== Recommended Future Tasks
 
 . Common architecture for climate and Earth Observation (EO) platforms
-. Machine Learning systems and models interoperability in federated cyberinfrastructures
+. ML systems and models interoperability in federated cyberinfrastructures
 
 ==== Recommended Future Deliverables
 
@@ -50,7 +50,7 @@ The following components are suggested to be deployed for testing, demonstration
 . Open Search enabled catalog for climate data
 . Ontology to use in CWL file formats supported in workflows
 . ML models for detection and localization of extreme climate events
-. ML systems supporting interfaces for interoperable DL models, where trained models from a ML system can be loaded into a different one to be used for inference
+. ML systems supporting interfaces for interoperable Deep Learning (DL) models, where trained models from a ML system can be loaded into a different one to be used for inference
 . ML-enabled application packages and workflows, where a packaged ML system is used in conjunction with pre-processing steps
 . Additional application packages, with different variations of input/output mappings of Docker containers and underlying executable code
 . Advanced clients to provide user feedback on all previously mentioned future components

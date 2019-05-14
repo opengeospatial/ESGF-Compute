@@ -7,7 +7,7 @@ Section 6 presents the Earth System Grid Federation (ESGF) collaborative effort 
 
 Led by the U.S. Department of Energy’s (DOE) Office of Biological and Environmental Research (BER), ESGF is an international multi-agency federation that develops, deploys, and maintains software to facilitate advancements in geophysical science. ESGF’s open-source, operational code base disseminates model simulation, observational, and reanalysis data for research assessments and model validation via secure storage and dissemination of petabytes of data.
 
-Addressing “big data” challenges in Earth system research, ESGF is a collaboration of numerous computer scientists, data scientists, and climate researchers. The federation houses an enormous database of global observational and simulation data — more than 5 petabytes — and manages the high-performance computing (HPC) hardware and software infrastructure necessary for scientific climate research. In the nearly two decades since its launch, ESGF has grown to serve 25,000 users on 6 continents cite:[auten20187th]. More details can be found in https://esgf.llnl.gov/esgf-media/pdf/2017-ESGF-Brochure.pdf[ESGF Brochure] or in <<Discussion, Discussion>> for other supporting material and citations.
+Addressing “big data” challenges in Earth system research, ESGF is a collaboration of numerous computer scientists, data scientists, and climate researchers. The federation houses an enormous database of global observational and simulation data — more than five petabytes — and manages the high-performance computing (HPC) hardware and software infrastructure necessary for scientific climate research. In the nearly two decades since its launch, ESGF has grown to serve 25,000 users on six continents cite:[auten20187th]. More details can be found in https://esgf.llnl.gov/esgf-media/pdf/2017-ESGF-Brochure.pdf[ESGF Brochure] or in <<Discussion, Discussion>> for other supporting material and citations.
 
 ==== ESGF Mission
 
@@ -29,14 +29,14 @@ As of early 2019, the priorities of ESGF are as follows:
 * CMIP6 data replication
 * Next-generation search services
 * Scalability on multiple fronts
-* Machine Learning tools
+* Machine learning tools
 * Compute nodes challenges
 
 On that last element, the Compute Working Team (CWT) currently conducts iterative deployments and tests to stand up multiple production-ready, officially certified ESGF compute nodes. This effort includes data selection, security scans, API development, scalability tests, documentation updates, and regular status reports. The current Engineering Report is one of the contributions to this challenge.
 
 === Compute Challenge Implementations
 
-The ESGF Compute Challenge participants completed various experiments and integrations. The EMS implementation described in this report is based on components from both Birdhouse and PAVICS. The <<Solution, Solution>> described in this report focus on providing access to deployed ESGF CWT API processes and providers in application packages and workflows. Future work includes exposing application packages through ESGF CWT API, either manually or dynamically. Below is a list of the various systems and frameworks involved in the Compute Challenge.
+The ESGF Compute Challenge participants completed various experiments and integrations. The EMS implementation described in this report is based on components from both Birdhouse and PAVICS. The <<Solution, Solution>> described in this report focuses on providing access to deployed ESGF CWT API processes and providers in application packages and workflows. Future work includes exposing application packages through ESGF CWT API, either manually or dynamically. Below is a list of the various systems and frameworks involved in the Compute Challenge.
 
 * https://computation.llnl.gov/projects/aims-analytics-and-informatics-management-systems[AIMS] - Analytics and Informatics Management Systems, LLNL.
 * http://bird-house.github.io/[Birdhouse] Framework, DKRZ/CEDA/IPSL. See cite:[EGU2018EHBERECT].
@@ -48,14 +48,14 @@ The ESGF Compute Challenge participants completed various experiments and integr
 
 EDAS can be used as an analytics engine for the ESGF through STRATUS, an integrative framework developed at NASA NCCS. STRATUS presents a unified API and workflow orchestration for varied climate data analytic services. See <<Discussion, Discussion>> section for more information on STRATUS.
 
-As of early April, only AIMS and EDAS offered endpoint implementing the ESGF Compute Working Team API. Interoperability experiments conducted on these providers for this work are documented in <<Solution, Section 7>> and <<TIEs, Section 8>>, while the API is briefly described below.
+As of early April, only AIMS and EDAS offered endpoints implementing the ESGF Compute Working Team API. Interoperability experiments conducted on these providers for this work are documented in <<Solution, Section 7>> and <<TIEs, Section 8>>, while the API is briefly described below.
 
 === ESGF Compute Working Team API
 
-The ESGF Compute Working Team (CWT) is working to improve interoperability and compute capabilities within the federation using Web services technology. The Open Geographic Consortium (OGC) Web Processing Service (WPS) standard has been selected to ensure machine-to-machine interoperability. A reference server implementation of a https://github.com/ESGF/esgf-compute-wps[Compute Node] is offered. Certifications datasets are listed in a https://docs.google.com/document/d/1pxz1Kd3JHfFp8vR2JCVBfApbsHmbUQQstifhGNdc6U0/edit?usp=sharing[GoogleDocs] living document. The process requirements are defined https://github.com/ESGF/esgf-compute-api/blob/devel/docs/source/cwt.compat.rst[on GitHub]. These requirements are partially duplicated below for convenience.
+The ESGF Compute Working Team (CWT) is working to improve interoperability and compute capabilities within the federation using Web services technology. The Open Geographic Consortium (OGC) Web Processing Service (WPS) standard has been selected to ensure machine-to-machine interoperability. A reference server implementation of a https://github.com/ESGF/esgf-compute-wps[compute node] is offered. Certifications datasets are listed in a https://docs.google.com/document/d/1pxz1Kd3JHfFp8vR2JCVBfApbsHmbUQQstifhGNdc6U0/edit?usp=sharing[GoogleDocs] living document. The process requirements are defined https://github.com/ESGF/esgf-compute-api/blob/devel/docs/source/cwt.compat.rst[on GitHub]. These requirements are partially duplicated below for convenience.
 
 ==== Inputs
-The datainputs parameter consists of the following three types.
+The _datainputs_ parameter consists of the following three types.
 
 * Domain
 * Variable
@@ -66,12 +66,12 @@ This WPS input should use the identifier domain. The input is passed an array of
 
 * id [Required]
 * mask [Optional]
-* One ore more dimensions keyed using a descriptive identifier. [Required]
+* One or more dimensions keyed using a descriptive identifier. [Required]
 
 ===== Variable
 This WPS input should use the identifier variable. The input is passed an array of variables that define all inputs for the process.
 
-* id [Required] - Can be extended with a | followed by an identifier that will be used to reference the Variable
+* id [Required] - Can be extended with a | followed by an identifier that will be used to reference the variable
 * uri [Required]
 * domain [Optional]
 

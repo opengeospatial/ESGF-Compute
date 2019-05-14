@@ -14,7 +14,7 @@ CDAT is a powerful and complete front-end to a rich set of visual-data explorati
 * CDMS (Climate Data Management System)
 
 // ESGF Face to Face report 2017
-Object-oriented data management system specialized for organizing multidimensional gridded data used in climate analyses for data observation and simulation. (https://cdat.llnl.gov/documentation/cdms/cdms.html[CDMS])
+Object-oriented data management system specialized in organizing multidimensional gridded data used in climate analyses for data observation and simulation. (https://cdat.llnl.gov/documentation/cdms/cdms.html[CDMS])
 
 * CMIP
 
@@ -43,7 +43,7 @@ Dask is a flexible library for parallel computing in Python. It offers dynamic t
 * Deep learning
 
 //Wikipedia
-Deep Learning is a class of machine learning algorithms that: use a cascade of multiple layers of nonlinear processing units for feature extraction and transformation; learn in supervised and/or unsupervised manners; learn multiple levels of representations that correspond to different levels of abstraction.
+Deep learning is a class of machine learning algorithms that: use a cascade of multiple layers of nonlinear processing units for feature extraction and transformation; learn in supervised and/or unsupervised manners; learn multiple levels of representations that correspond to different levels of abstraction.
 
  * Deep neural network
 
@@ -56,7 +56,7 @@ A method that can provide climate model outputs at a finer resolution than their
 
 * EDAS (Earth Data Analytics Service)
 
-Developed by NASA NCCS, EDAS is a high-performance big data analytics framework built on Dask/xarray, to allow researchers to leverage our compute power to analyze large datasets located at the NCCS through a web-based interface, thereby eliminating the need to download the data. https://www.nccs.nasa.gov/services/analytics/EDAS[EDAS]
+Developed by NASA NCCS, EDAS is a high-performance big data analytics framework built on Dask/xarray. It allows researchers to leverage computing power to analyze large datasets located at the NCCS through a web-based interface, thereby eliminating the need to download the data. https://www.nccs.nasa.gov/services/analytics/EDAS[EDAS]
 
 * HDF (Hierarchical Data Format)
 
@@ -65,7 +65,7 @@ Data model, library, and file format for storing and managing a wide variety of 
 
 * Index (climate index)
 
-Term used to refer to properties of the climate that are not measured in the field or calculated by climate models but rather that are calculated or derived from climate variables such as temperature and precipitation. Examples include the number of growing degree-days, freeze-thaw cycles, and the drought code index. (see variable)
+Term used to refer to climate properties that are not measured in the field or calculated by climate models but rather that are calculated or derived from climate variables such as temperature and precipitation. Examples include the number of growing degree-days, freeze-thaw cycles, and the drought code index. (see variable)
 
 * IS-ENES (Infrastructure for the European Network for Earth System Modeling)
 
@@ -79,7 +79,7 @@ Machine-independent, self-describing binary data format (unidata.ucar.edu/softwa
 
 * OpenAPI
 
-The OpenAPI Specification is an API description format for REST APIs.
+The OpenAPIsSpecification is an API description format for REST APIs.
 
 * OPeNDAP (Open-Source Project for a Network Data Access Protocol)
 
@@ -89,7 +89,7 @@ Architecture for data transport including standards for encapsulating structured
 * Obs4MIPs (Observations for Model Intercomparisons)
 
 // ESGF Face to Face report 2017
-Database used by the CMIP modeling community for comparing satellite observations with climate model predictions. (https://esgf-node.llnl.gov/projects/obs4mips/[obs4mips])
+Database used by the CMIP modeling community to compare satellite observations with climate model predictions. (https://esgf-node.llnl.gov/projects/obs4mips/[obs4mips])
 
 * Profile
 
@@ -124,7 +124,7 @@ Xarray is an open source project and Python package focused on multi-dimensional
 * C3S Copernicus Climate Change Service
 * CCCS Canadian Center for Climate Services
 * CERFACS Centre Européen de Recherche et de Formation Avancée en Calcul Scientifique
-* CRIM Computer research institute of Montreal
+* CRIM Computer Research Institute of Montreal
 * CWL	Common Workflow Language
 * CWT Compute Working Team
 * DKRZ Deutsches Klimarechenzentrum

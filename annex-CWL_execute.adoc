@@ -1,8 +1,8 @@
 [appendix]
 [[JSON_CWT_execute]]
-= JSON file of a ESGF CWT API execute body
+= JSON file of an ESGF CWT API execute body
 
-.JSON file of a ESGF CWT API execute body
+.JSON file of an ESGF CWT API execute body
 [source,json]
 ----
 {

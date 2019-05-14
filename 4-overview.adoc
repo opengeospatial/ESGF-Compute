@@ -1,15 +1,15 @@
 [[Overview]]
 == Overview
 
-(( Section 5 briefly recaps the work done in Testbed-14 for what concerns execution and deployment of applications and workflows. The section also review the potential implications for Testbed-15. ))
+(( Section 5 briefly recaps the work done in Testbed-14 regarding the execution and deployment of applications and workflows. The section also reviews the potential implications for Testbed-15. ))
 
-(( Section 6 describes the ESGF Compute Challenge, an community effort into which this activity has been coordinated. ))
+(( Section 6 describes the ESGF Compute Challenge, a community effort into which this activity has been coordinated. ))
 
 (( Section 7 presents the solution developed in this activity. It documents the execution management system and its extension to the ESGF Compute Working Team API. ))
 
 (( Section 8 introduces the workflows and application packages created for interoperability experiments with ESGF API. It also lists the relevant climate processes and data used.))
 
-(( Section 9 lists issues of interest and findings that the work performed by the Participants allowed to identify. ))
+(( Section 9 lists issues of interest and findings that the work performed by the participants allowed to identify. ))
 
 (( Annex A provides a client-side Python sample through ESGF CWT API. ))
 
@@ -21,7 +21,7 @@
 
 (( Annex E provides a JSON file for WPS 1.0 workflow of climate processes.))
 
-(( Annex F provides a JSON file the request body of a WPS 1.0 workflow.))
+(( Annex F provides a JSON file for the request body of a WPS 1.0 workflow.))
 
 (( Annex G provides a CWL file for the WPS 1.0 to CWT workflow using LLNL AIMS WPS provider.))
 
