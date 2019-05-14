@@ -63,7 +63,7 @@ The following Engineering Reports are suggested to support and document experime
 . Climate data and processes best practices ER
 . Geospatial ML systems best practices ER
 
-===	Document contributor contact points
+===	Document Contributor Contact Points
 
 All questions regarding this document should be directed to the editor or the contributors:
 

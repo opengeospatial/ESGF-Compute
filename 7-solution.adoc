@@ -20,7 +20,7 @@ In Testbed-14, CRIM's EMS implementation was all contained in a component named 
 
 This subsection describes the various application profiles developed and introduces their integration into workflow. Subsetting and climate indices calculation are also introduced as key processes relevant to ESGF.
 
-==== Process deployment
+==== Process Deployment
 
 The DeployProcess document conforms to the existing API but requires fewer optional elements. Using the wpsApplication deployment profile name, it only requires the process id and an execution unit referencing a WPS 1.0 endpoint. Inputs, outputs and CWL file can be implicitly deduced.
 
@@ -66,7 +66,7 @@ For the ESGF CWT processes, the CWL must be provided as a reference or inlined, 
 }
 ----
 
-==== Workflow integration
+==== Workflow Integration
 
 The CWL file is modified so that the CWL engine can instantiate the appropriate job implementation. To that effect, the hints section of the CWL file are used. This replaces the traditional _DockerRequirement_ value for extensions requirements, which are _WPS1Requirement_ and _ESGF-CWTRequirement_. Under that key, a dictionary containing all the parameters required to make an execute request to WPS 1.0 provider is added. The only difference with the CWL provided during Testbed-14 is the hints section declaring the WPS1Requirement and two parameters: the provider endpoint and the process which is wrapped. The file format is also now enforced in the CWL file. Below, a CWL example file describes one of the climate processes for the WPS 1.0 provider. A full example of the CWL file, containing inputs and outputs, can be found in <<CWL_WPS1_Finch, Annex B>>.
 

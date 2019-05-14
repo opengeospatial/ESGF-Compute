@@ -1,5 +1,5 @@
 [[TIEs]]
-== Applications and workflows
+== Applications and Workflows
 
 Section 8 documents interoperability experiments conducted between CRIM's EMS, LLNL AIMS and NASA EDAS endpoints in context of ESGF compute challenge. The section presents execution body samples and workflows.
 
@@ -51,7 +51,7 @@ The _files_ and _variable_ correspond to the ESGF CWT API _Variable_ input, as d
 
 For the application chaining, CWL engine is now able to process all type of application only by instantiating the proper job type. To demonstrate that interoperability, two workflows have been produced and will be presented in this section. Beforehand, utility applications will be introduced.
 
-==== Utility applications
+==== Utility Applications
 
 This concept has been added to further improve compatibility. They are small python applications, still packaged as CWL, that can make some adaptation between related type. For example, some application yields JSON file containing array of NetCDF files. The JSON output is therefore incompatible with an application wanting NetCDF files as inputs. The utility application can be chained between the two. This way, the CWL engine feeds the JSON output into the utility apps that will provide an array of NetCDF files, ready to be consumed by the next application. These applications are really lightweight because the CWL file is only wrapping a Python function already inside the Weaver EMS component. Below is a sample CWL file of the JSON to NetCDF.
 
@@ -82,7 +82,7 @@ outputs:
      glob: "*.nc"
 ----
 
-==== Workflow chaining WPS 1.0 processes
+==== Workflow Chaining WPS 1.0 Processes
 
 The first workflow consists of a subsetter and a climate indices process. The deploy body is exactly the same as in Testbed-14 as shown here. It contains the deployment profile name indicating that it is a workflow, a process id and a CWL reference containing the workflow.
 
@@ -134,7 +134,7 @@ In <<JSON_WPS1_workflow_body, Annex F>>, the _tasmax_ input provides a reference
 .Image showing workflow input / output example.
 image::images/workflow_sample.png[width=950,align="center"]
 
-==== Workflow linking 2 subsetters of CWT and WPS 1.0 type
+==== Workflow Linking 2 Subsetters of CWT and WPS 1.0 Types
 
 The second workflow, has been tried both ways, first subsetting by CWT then by WPS 1.0 and using the opposite order, WPS 1.0 first then feeding the CWT interface. As for the first workflow, the deploy body is unchanged from previous Testbed (except for the CWL file name) and omit here. The first CWL, detailed in <<CWL_WPS1_to_CWT_LLNL_workflow, Annex G>>, shows that the WPS 1.0, _crim_subset_, is linked to the second step, _llnl_subset_, a CWT process executed on the AIMS2 server at LLNL.
 

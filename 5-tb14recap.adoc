@@ -1,5 +1,5 @@
 [[Tb14Recap]]
-== Testbed 14 recap
+== Testbed 14 Recap
 
 Section 5 presents key elements of Testbed-14 relevant to this work, such as common architecture, interfaces and implementations. In general, the reader is invited to refer to the following Engineering Reports produced in the Earth Observation and Clouds (EOC) thread.
 
