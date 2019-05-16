@@ -14,7 +14,7 @@ A DeployProcess document is still provided but two new profile names have been i
 .New EMS component called Weaver and its workflow packages.
 image::images/Twitcher_OGC_DOE.png[width=950,align="center"]
 
-In Testbed-14, CRIM's EMS implementation was all contained in a component named Twitcher. That component is now separated into two components, so that each one can focus primarily on its own role and make the architecture simpler. The previous diagram resumes the situation. The WPS-T interface and CWL engine introduced in Twitcher are moved to a new component named https://github.com/crim-ca/weaver[Weaver]. Twitcher now operates as a security proxy along with the permission provider, Magpie. The relation between the CWL workflow engine, the job interface and all the available implementation for each of the application types are depicted in the previous figure.
+As described in <<Tb14Recap, Section 5>>, in Testbed-14, CRIM's EMS implementation was all contained in a component named Twitcher. This component is part of the Open Source software framework Birdhouse cite:[EGU2018EHBERECT]. In the current solution, Twitcher is separated into two components so that each one can focus primarily on its own role and make the architecture simpler. The previous diagram resumes the situation. Twitcher now operates as regular proxy and a Security Enforcement Point (PEP), alongside the permission provider, Magpie. The WPS-T 2.0 REST interface and the CWL engine are moved to a new component named https://github.com/crim-ca/weaver[Weaver].
 
 === Application Package
 
