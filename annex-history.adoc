@@ -14,4 +14,5 @@
 |April 10, 2019 |T. Landry | .6 |all |summary, discussion, editorial changes
 |April 11, 2019 |T. Landry | .7 |all |near-final draft
 |May 14, 2019 |T. Landry | .8 |all |internal revision of document
+|May 16, 2019 |T. Landry | .9 |solution, discussion | response to comments
 |====================

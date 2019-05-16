@@ -38,7 +38,7 @@ In Testbed-15 Machine Learning tasks, there is a specification to “continue th
 
 It is to be noted that work documented in OGC Testbed-14: Machine Learning Engineering Report cite:[TB14ML2018] presents a Dockerized, self-contained application package of PyTorch, including helper libraries. The work presented in the current report is therefore seen as potentially complementary to the ML common architecture to be defined in the ML thread.
 
-=== Generation of CWL wrappers for ESGF CWT API
+=== Generation of CWL Wrappers for ESGF CWT API
 In this work, a CWL descriptor such as the one in <<CWL_WPS1_Finch, Annex B>> is generated automatically using _DescribeProcess_ on a pre-deployed WPS 1.0 service. The process description is expected to explicitly define all inputs and outputs. In the case of ESGF CWT API compliant process, _DescribeProcess_ effectively lists _Domain_, _Variable_ and _Operation_ inputs, as specified in the API and described in <<ESGFCompute, Section 6>>. The multiple values of these parameters has to be passed separately in a JSON file. As such, they values are not automatically available for the CWL generation. A CWL file has to be manually edited to explicitly add and map the all inputs. An example can be seen in <<CWL_WPS1_EDAS, Annex C>>. To remediate this, a specific set of inputs, or profile, could be defined as a shared interface between deployed ESGF processes. Additionally, the EMS could implement special logic to parse the multiple values of an ESGF CWT API compliant service.
 
 === ESGF Supporting Material
