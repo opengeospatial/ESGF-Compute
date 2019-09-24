@@ -45,15 +45,15 @@ Currently, only a small portion of the ESGF WPS processing is implemented in Wea
 }
 ----
 
-_files_ and _variable_ correspond to the ESGF CWT API _variable_ input, as described in <<ESGFCompute, ESGF section>>. The _api_key_ must be obtained by creating an account on the Lawrence Livermore National Laboratory (LLNL) website. The other inputs are a flat representation of the ESGF 'Domain' input. So far, the _time_ and _lat/lon_ attributes are present in every NetCDF file encountered so they are easy to implement and re-use for each process. The ESGF processes successfully tested are _CDAT.aggregate_ and _CDAT.subset_, deployed on AIMS2 servers.
+The _files_ and _variable_ parameters correspond to the ESGF CWT API _variable_ input, as described in <<ESGFCompute, ESGF section>>. The _api_key_ must be obtained by creating an account on the Lawrence Livermore National Laboratory (LLNL) website. The other inputs are a flat representation of the ESGF 'Domain' input. So far, the _time_ and _lat/lon_ attributes are present in every NetCDF file encountered so they are easy to implement and re-use for each process. The ESGF processes successfully tested are _CDAT.aggregate_ and _CDAT.subset_, deployed on AIMS2 servers.
 
 === Application Chaining
 
-For the application chaining, the CWL engine is now able to process all applications types only by instantiating the proper job type. To demonstrate that interoperability, two workflows have been produced and will be presented in this section. Beforehand, utility applications will be introduced.
+For the application chaining, the CWL engine is now able to process all application types only by instantiating the proper job type. To demonstrate that interoperability, two workflows have been produced and will be presented in this section. Beforehand, utility applications will be introduced.
 
 ==== Utility Applications
 
-This concept has been added to further improve compatibility. They are small Python applications, still packaged as CWL, that can make some adaptation between related type. For example, some application yield JSON files containing an array of NetCDF files. The JSON output is therefore incompatible with an application wanting NetCDF files as inputs. The utility application can be chained between the two. This way, the CWL engine feeds the JSON output into the utility apps that will provide an array of NetCDF files, ready to be consumed by the next application. These applications are really lightweight because the CWL file is only wrapping a Python function already inside the Weaver EMS component. Below is a sample CWL file of the JSON to NetCDF.
+This concept has been added to further improve compatibility. They are small Python applications, still packaged as CWL, that can make some adaptation between related type. For example, some applications yield JSON files containing an array of NetCDF files. The JSON output is therefore incompatible with an application wanting NetCDF files as inputs. The utility application can be chained between the two. This way, the CWL engine feeds the JSON output into the utility apps that will provide an array of NetCDF files, ready to be consumed by the next application. These applications are really lightweight because the CWL file is only wrapping a Python function already inside the Weaver EMS component. Below is a sample CWL file of the JSON to NetCDF.
 
 .CWL file for the JSON to NetCDF utility application
 [source,python]
@@ -136,7 +136,7 @@ image::images/workflow_sample.png[width=950,align="center"]
 
 ==== Workflow Linking two Subsetters of CWT and WPS 1.0 Types
 
-The second workflow has been tried both ways, first subsetting by CWT then by WPS 1.0, and using the opposite order, WPS 1.0 first then feeding the CWT interface. As for the first workflow, the deploy body is unchanged from previous Testbed (except for the CWL file name) and is omitted here. The first CWL, detailed in <<CWL_WPS1_to_CWT_LLNL_workflow, Annex G>>, shows that the WPS 1.0, _crim_subset_, is linked to the second step, _llnl_subset_, a CWT process executed on the AIMS2 server at LLNL.
+The second workflow has been tried both ways, first subsetting by CWT then by WPS 1.0, and using the opposite order, WPS 1.0 first then feeding the CWT interface. As for the first workflow, the deploy body is unchanged from the previous Testbed (except for the CWL file name) and is omitted here. The first CWL, detailed in <<CWL_WPS1_to_CWT_LLNL_workflow, Annex G>>, shows that the WPS 1.0, _crim_subset_, is linked to the second step, _llnl_subset_, a CWT process executed on the AIMS2 server at LLNL.
 
 The second CWL file, detailed in <<CWL_WPS1_to_CWT_NASA_workflow, Annex H>>, shows the opposite, this time using the CWT interface of the NASA server, _nasa_subset_, to feed the WPS 1.0 process, _crim_subset_. In this workflow, a utility application is also used to convert the file type obtained from the _nasa_subset_ step to a string type required by the _crim_subset_ further supporting the usefulness of these utility applications. The result of subsetting on CMIP6 data is shown on the right in the image below.
 
