@@ -21,11 +21,6 @@ Object-oriented data management system specialized in organizing multidimensiona
 // ESGF Face to Face report 2017
 Sponsored by the World Climate Research Programme’s Working Group on Coupled Modeling, CMIP is a community-based infrastructure for climate model diagnosis, validation, intercomparison, documentation, and data access. (https://www.wcrp-climate.org/wgcm-cmip[CMIP])
 
-* CORDEX
-
-// ESGF Face to Face report 2017
-Provides global coordination of regional climate downscaling for improved regional climate change adaptation and impact assessment. (http://www.cordex.org/[CORDEX])
-
 * CREATE (Collaborative REAnalysis Technical Environment)
 
 // ESGF Face to Face report 2017
@@ -33,6 +28,7 @@ NASA project that centralizes numerous global reanalysis data sets into a single
 
 * Controlled vocabulary
 
+A controlled vocabulary is an organized collection of terms used to index content in order to facilitate information retrieval (OGC 17-040).
 //Wikipedia
 Controlled vocabularies provide a way to organize knowledge for subsequent retrieval. They are used in subject indexing schemes, subject headings, thesauri, taxonomies and other forms of knowledge organization systems.
 
@@ -45,10 +41,6 @@ Dask is a flexible library for parallel computing in Python. It offers dynamic t
 //Wikipedia
 Deep learning is a class of machine learning algorithms that: use a cascade of multiple layers of nonlinear processing units for feature extraction and transformation; learn in supervised and/or unsupervised manners; learn multiple levels of representations that correspond to different levels of abstraction.
 
- * Deep neural network
-
-//Wikipedia
-A deep neural network (DNN) is an artificial neural network (ANN) with multiple layers between the input and output layers. See Artificial Neural Network.
 
 * Downscaling
 
@@ -58,19 +50,10 @@ A method that can provide climate model outputs at a finer resolution than their
 
 Developed by NASA NCCS, EDAS is a high-performance big data analytics framework built on Dask/xarray. It allows researchers to leverage computing power to analyze large datasets located at the NCCS through a web-based interface, thereby eliminating the need to download the data. https://www.nccs.nasa.gov/services/analytics/EDAS[EDAS]
 
-* HDF (Hierarchical Data Format)
-
-// ESGF Face to Face report 2017
-Data model, library, and file format for storing and managing a wide variety of high-volume and complex data types
 
 * Index (climate index)
 
 Term used to refer to climate properties that are not measured in the field or calculated by climate models but rather that are calculated or derived from climate variables such as temperature and precipitation. Examples include the number of growing degree-days, freeze-thaw cycles, and the drought code index. (see variable)
-
-* IS-ENES (Infrastructure for the European Network for Earth System Modeling)
-
-// ESGF Face to Face report 2017
-IS-ENES3 is the third phase project of the distributed e-infrastructure of models, model data and metadata of the European Network for Earth System Modelling. (https://is.enes.org/[IS-ENES3]).
 
 * netCDF (Network Common Data Form)
 
@@ -79,17 +62,8 @@ Machine-independent, self-describing binary data format (unidata.ucar.edu/softwa
 
 * OpenAPI
 
-The OpenAPIsSpecification is an API description format for REST APIs.
+The OpenAPI Specification is a specification for describing APIs implemented according to Representational State Transfer (REST) principles.
 
-* OPeNDAP (Open-Source Project for a Network Data Access Protocol)
-
-// ESGF Face to Face report 2017
-Architecture for data transport including standards for encapsulating structured data and describing data attributes (opendap.org).
-
-* Obs4MIPs (Observations for Model Intercomparisons)
-
-// ESGF Face to Face report 2017
-Database used by the CMIP modeling community to compare satellite observations with climate model predictions. (https://esgf-node.llnl.gov/projects/obs4mips/[obs4mips])
 
 * Profile
 
@@ -100,10 +74,6 @@ Set of one or more base standards and - where applicable - the identification of
 
 NASA project offering an integrative framework presenting a unified API and workflow orchestration for varied climate data analytic services.
 
-* Supervised Learning
-
-//Wikipedia
-Supervised learning is the machine learning task of learning a function that maps an input to an output based on example input-output pairs. It infers a function from labeled training data consisting of a set of training examples.
 
 * Variable (climate variable)
 
@@ -121,7 +91,6 @@ Xarray is an open source project and Python package focused on multi-dimensional
 * AP Application Package
 * API Application Programming Interface
 * BER Biological and Environment Research
-* C3S Copernicus Climate Change Service
 * CCCS Canadian Center for Climate Services
 * CERFACS Centre Européen de Recherche et de Formation Avancée en Calcul Scientifique
 * CRIM Computer Research Institute of Montreal
@@ -149,7 +118,6 @@ Xarray is an open source project and Python package focused on multi-dimensional
 * NASA National Aeronautics and Space Administration
 * NCCS NASA Center for Climate Simulation
 * NRCan Natural Resources Canada
-* OPeNDAP Open-Source Project for a Network Data Access Protocol
 * PAVICS Power Analytics and Visualization for Climate Science
 * PCIC Pacific Climate Impacts Consortium
 * OWS	OGC Web Services

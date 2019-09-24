@@ -4,7 +4,7 @@
 //(( The summary shall contain the key findings in a concise form. A more detailed description of the findings should be in the body of the report. ))
 //(( This section shall be between 2-3 paragraphs and not longer than 507 words.))
 
-This OGC Engineering Report (ER) will describe the advancement of an Execution Management System (EMS) to support Web Processing Services (WPS) climate processes deployed on the Earth System Grid Federation (ESGF). The report introduces climate data, processes and applications into CWL workflows with the intent of advancing: application packaging, deployment and execution in clouds; interoperability of services in federated cyberinfrastructures; geospatial workflows towards standardization. Work presented in this report is a direct continuation of the Earth Observation & Clouds (EOC) thread of Testbed-14. This report is expected to be of relevance for Testbed-15, both to the Earth Observation Process and Application Discovery (EOPAD) task and the Machine Learning task. This engineering report will describe: relevant work conducted in OGC Testbed-14; ESGF and its compute challenge; adaptations of existing climate processes into workflows; interoperability experiments with ESGF endpoints conforming to a common API.
+This Open Geospatial Consortium (OGC) Engineering Report (ER) will describe the advancement of an Execution Management System (EMS) to support Web Processing Service (WPS) climate processes deployed on the Earth System Grid Federation (ESGF). The report introduces climate data, processes and applications into Common Workflow Language (CWL) workflows with the intent of advancing: application packaging, deployment and execution in clouds; interoperability of services in federated cyberinfrastructures; and geospatial workflows towards standardization. Work presented in this report is a direct continuation of the Earth Observation & Clouds (EOC) thread of Testbed-14. This report is expected to be of relevance to Testbed-15, both to the Earth Observation Process and Application Discovery (EOPAD) task and the Machine Learning task. This engineering report will describe: relevant work conducted in OGC Testbed-14; ESGF and its compute challenge; adaptations of existing climate processes into workflows; interoperability experiments with ESGF endpoints conforming to a common API.
 
 === Requirements & Research Motivation
 
@@ -17,14 +17,14 @@ It was observed by certain testbed participants, observers and stakeholders that
 . Advance application packaging, deployment and execution in clouds
 . Advance interoperability of services in ESGF federated cyberinfrastructure
 . Advance geospatial workflows towards standardization
-. Explore use of EO data and processes in support of climate infrastructure
+. Explore use of Earth Observation (EO) data and processes in support of climate infrastructure
 . Facilitate use and exchange of Machine Learning (ML) systems and learned models
 
 === Prior-After Comparison
 
-Previous work in OGC testbeds allowed definition of application packages in workflow-enabled environments, and their subsequent deployment and execution on distributed secured infrastructures. Data discoverability was superficially addressed through inclusion of Open Search capabilities to identify and select the appropriate data from catalogs. Applications developed for the occasion included stacking, subsetting, feature detection and index computation, both on optical and SAR data. All these concerns are of particular interest for OGC's Earth Observation Exploitation Platform (EO Ex Platform) Domain Working Group (DWG).
+Previous work in OGC testbeds allowed definition of application packages in workflow-enabled environments, and their subsequent deployment and execution on distributed secured infrastructures. Data discoverability was superficially addressed through inclusion of OpenSearch capabilities to identify and select the appropriate data from catalogs. Applications developed for the occasion included stacking, subsetting, feature detection and index computation, both on optical and Synthetic-Aperture Radar (SAR) data. All these concerns are of particular interest for OGC's Earth Observation Exploitation Platform (EO Ex Platform) Domain Working Group (DWG).
 
-The work described in this ER improves interoperability of workflows with pre-deployed WPS 1.0 and WPS 2.0 processes. It also enables the inclusion of pre-deployed processes adhering to the ESGF Compute Working Team (CWT) API. The workflows proposed in this work include climate data (CMIP6, statistically downscaled climate scenarios, variables and indexes), climate processes (index computation) and base processes (subsetting, averaging). Three different infrastructures were used for <<TIEs, interoperability experiments>>.
+The work described in this ER improves interoperability of workflows with pre-deployed WPS 1.0 and WPS 2.0 processes. It also enables the inclusion of pre-deployed processes adhering to the ESGF Compute Working Team (CWT) Application Programming Interface (API). The workflows proposed in this work include climate data (CMIP6, statistically downscaled climate scenarios, variables and indexes), climate processes (index computation) and base processes (subsetting, averaging). Three different infrastructures were used for <<TIEs, interoperability experiments>>.
 
 The last two objectives of the ESGF concept, the use of EO in support of climate infrastructures and the integration of ML systems, were only partially and informally addressed in this work. It is expected that work planned and conducted in OGC Testbed-15, as well as in other collaborative innovation projects, will continue to support these efforts and drive future requirements. This report contains relevant content potentially supporting https://portal.opengeospatial.org/files/83548[OGC request for information (RFI)] on Earth Observation Big Data Architecture.
 
@@ -79,7 +79,7 @@ All questions regarding this document should be directed to the editor or the co
 
 ===	Acknowledgements
 
-Besides this testbed activity participants and observers, the following institutions collaborated in ESGF Compute Challenge and coordinated their efforts:
+In addition to participants and observers in this testbed activity, the following institutions collaborated in the ESGF Compute Challenge and coordinated their efforts:
 
 *	Centro Euro-Mediterraneo sui Cambiamenti Climatici (CMCC)
 * Centre Européen de Recherche et de Formation Avancée en Calcul Scientifique (CERFACS)

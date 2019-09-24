@@ -5,7 +5,7 @@ Section 6 presents the Earth System Grid Federation (ESGF) collaborative effort 
 
 === Background Information
 
-Led by the U.S. Department of Energy’s (DOE) Office of Biological and Environmental Research (BER), ESGF is an international multi-agency federation that develops, deploys, and maintains software to facilitate advancements in geophysical science. ESGF’s open-source, operational code base disseminates model simulation, observational, and reanalysis data for research assessments and model validation via secure storage and dissemination of petabytes of data.
+Led by the Office of Biological and Environmental Research (BER) of the U.S. Department of Energy (DOE), ESGF is an international multi-agency federation that develops, deploys, and maintains software to facilitate advancements in geophysical science. ESGF’s open-source, operational code base disseminates model simulation, observational, and reanalysis data for research assessments and model validation via secure storage and dissemination of petabytes of data.
 
 Addressing “big data” challenges in Earth system research, ESGF is a collaboration of numerous computer scientists, data scientists, and climate researchers. The federation houses an enormous database of global observational and simulation data — more than five petabytes — and manages the high-performance computing (HPC) hardware and software infrastructure necessary for scientific climate research. In the nearly two decades since its launch, ESGF has grown to serve 25,000 users on six continents cite:[auten20187th]. More details can be found in https://esgf.llnl.gov/esgf-media/pdf/2017-ESGF-Brochure.pdf[ESGF Brochure] or in <<Discussion, Discussion>> for other supporting material and citations.
 
@@ -52,7 +52,7 @@ As of early April, only AIMS and EDAS offered endpoints implementing the ESGF Co
 
 === ESGF Compute Working Team API
 
-The ESGF Compute Working Team (CWT) is working to improve interoperability and compute capabilities within the federation using Web services technology. The Open Geographic Consortium (OGC) Web Processing Service (WPS) standard has been selected to ensure machine-to-machine interoperability. A reference server implementation of a https://github.com/ESGF/esgf-compute-wps[compute node] is offered. Certifications datasets are listed in a https://docs.google.com/document/d/1pxz1Kd3JHfFp8vR2JCVBfApbsHmbUQQstifhGNdc6U0/edit?usp=sharing[GoogleDocs] living document. The process requirements are defined https://github.com/ESGF/esgf-compute-api/blob/devel/docs/source/cwt.compat.rst[on GitHub]. These requirements are partially duplicated below for convenience.
+The ESGF Compute Working Team (CWT) is working to improve interoperability and compute capabilities within the federation using Web services technology. The OGC WPS standard has been selected to ensure machine-to-machine interoperability. A reference server implementation of a https://github.com/ESGF/esgf-compute-wps[compute node] is offered. Certification datasets are listed in a https://docs.google.com/document/d/1pxz1Kd3JHfFp8vR2JCVBfApbsHmbUQQstifhGNdc6U0/edit?usp=sharing[GoogleDocs] living document. The process requirements are defined https://github.com/ESGF/esgf-compute-api/blob/devel/docs/source/cwt.compat.rst[on GitHub]. These requirements are partially duplicated below for convenience.
 
 ==== Inputs
 The _datainputs_ parameter consists of the following three types.
